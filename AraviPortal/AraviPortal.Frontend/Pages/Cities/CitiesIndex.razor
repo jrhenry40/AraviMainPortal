@@ -31,8 +31,8 @@ else
                                 @city.Name
                             </td>
                             <td>
-                                <a class="btn btn-warning">@Localizer["Edit"]</a>
-                                <button class="btn btn-danger">@Localizer["Delete"]</button>
+                                <a class="btn btn-warning" href="/cities/edit/@city.Id">@Localizer["Edit"]</a>
+                                <button class="btn btn-danger" @onclick=@(() => DeleteAsync(city))>@Localizer["Delete"]</button>
                             </td>
                         </tr>
                     }
