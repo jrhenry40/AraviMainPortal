@@ -10,7 +10,7 @@ public class Hangar
     [Required]
     public string Name { get; set; } = null!;
 
-    public City City { get; set; } = null!;
+    public City? City { get; set; }
 
     public int CityId { get; set; }
 }

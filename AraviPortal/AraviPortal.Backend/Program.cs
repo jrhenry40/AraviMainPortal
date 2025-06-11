@@ -1,4 +1,8 @@
 using AraviPortal.Backend.Data;
+using AraviPortal.Backend.Repositories.Implementations;
+using AraviPortal.Backend.Repositories.Interfaces;
+using AraviPortal.Backend.UnitsOfWork.Implementations;
+using AraviPortal.Backend.UnitsOfWork.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +12,9 @@ builder.Services.AddSwaggerGen(); // Agrega los servicios de generación de Swagg
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=LocalConnection"));
+
+builder.Services.AddScoped(typeof(IGenericUnitOfWork<>), typeof(GenericUnitOfWork<>));
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 var app = builder.Build();
 
