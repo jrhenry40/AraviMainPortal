@@ -1,9 +1,13 @@
+using AraviPortal.Backend.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer(); // Necesario para que Swagger pueda explorar tus endpoints
 builder.Services.AddSwaggerGen(); // Agrega los servicios de generación de Swagger
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=LocalConnection"));
 
 var app = builder.Build();
 
