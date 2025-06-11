@@ -1,0 +1,42 @@
+﻿@page "/cities"
+
+<h3>Ciudades</h3>
+
+@if (Cities is null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <div class="mb-3">
+        <a class="btn btn-primary" href="/cities/create">Nueva Ciudad</a>
+    </div>
+
+    @* <GenericList MyList="Cities"> *@
+    @* <Body> *@
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>País</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var city in Cities!)
+            {
+                <tr>
+                    <td>
+                        @city.Name
+                    </td>
+                    <td>
+                        <a class="btn btn-warning">Editar</a>
+                        <button class="btn btn-danger">Borrar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @* </Body> *@
+    @* </GenericList> *@
+}
+
