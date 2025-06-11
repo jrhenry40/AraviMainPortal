@@ -1,0 +1,5 @@
+﻿@page "/cities/create"
+
+<h3>@Localizer["Create"] @Localizer["City"]</h3>
+
+<CityForm @ref="cityForm" City="city" OnValidSubmit="CreateAsync" ReturnAction="Return" />
