@@ -2,7 +2,7 @@
 
 namespace AraviPortal.Shared.Entities;
 
-public class City
+public class Hangar
 {
     public int Id { get; set; }
 
@@ -10,7 +10,7 @@ public class City
     [Required]
     public string Name { get; set; } = null!;
 
-    public ICollection<Hangar>? Hangars { get; set; }
+    public City City { get; set; } = null!;
 
-    public int HangarsCount => Hangars == null ? 0 : Hangars.Count;
+    public int CityId { get; set; }
 }
