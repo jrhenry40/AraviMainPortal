@@ -1,0 +1,38 @@
+﻿@page "/hangars"
+
+<h3>@Localizer["Hangars"]</h3>
+
+<div class="mb-3">
+    <a class="btn btn-primary" href="/hangars/create">@Localizer["New"] @Localizer["Hangar"]</a>
+</div>
+
+<GenericList MyList="Hangars">
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>@Localizer["Hangar"]</th>
+                    <th>@Localizer["City"]</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var hangar in Hangars!)
+                {
+                    <tr>
+                        <td>
+                            @hangar.Name
+                        </td>
+                        <td>
+                            @hangar.City!.Name
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" href="/hangars/edit/@hangar.Id">@Localizer["Edit"]</a>
+                            <button class="btn btn-danger" @onclick=@(() => DeleteAsync(hangar))>@Localizer["Delete"]</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </Body>
+</GenericList>
