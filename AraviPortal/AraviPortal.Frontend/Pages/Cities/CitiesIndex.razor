@@ -20,6 +20,7 @@ else
                 <thead>
                     <tr>
                         <th>@Localizer["City"]</th>
+                        <th># @Localizer["Hangars"]</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -27,9 +28,8 @@ else
                     @foreach (var city in Cities!)
                     {
                         <tr>
-                            <td>
-                                @city.Name
-                            </td>
+                            <td>@city.Name</td>
+                            <td>@city.HangarsCount</td>
                             <td>
                                 <a class="btn btn-warning" href="/cities/edit/@city.Id">@Localizer["Edit"]</a>
                                 <button class="btn btn-danger" @onclick=@(() => DeleteAsync(city))>@Localizer["Delete"]</button>
