@@ -19,6 +19,10 @@ namespace AraviPortal.Backend.UnitsOfWork.Implementations
 
         public override async Task<ActionResponse<IEnumerable<Hangar>>> GetAsync() => await _hangarsRepository.GetAsync();
 
+        public override async Task<ActionResponse<IEnumerable<Hangar>>> GetAsync(PaginationDTO pagination) => await _hangarsRepository.GetAsync(pagination);
+
+        public async Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination) => await _hangarsRepository.GetTotalRecordsAsync(pagination);
+
         public async Task<ActionResponse<Hangar>> AddAsync(HangarDTO hangarDTO) => await _hangarsRepository.AddAsync(hangarDTO);
 
         public async Task<IEnumerable<Hangar>> GetComboAsync(int cityId) => await _hangarsRepository.GetComboAsync(cityId);

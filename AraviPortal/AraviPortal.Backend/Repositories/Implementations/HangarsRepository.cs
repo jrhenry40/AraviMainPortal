@@ -1,4 +1,5 @@
 ﻿using AraviPortal.Backend.Data;
+using AraviPortal.Backend.Helpers;
 using AraviPortal.Backend.Repositories.Interfaces;
 using AraviPortal.Shared.DTOs;
 using AraviPortal.Shared.Entities;
@@ -48,6 +49,46 @@ public class HangarsRepository : GenericRepository<Hangar>, IHangarsRepository
         {
             WasSuccess = true,
             Result = hangar
+        };
+    }
+
+    public override async Task<ActionResponse<IEnumerable<Hangar>>> GetAsync(PaginationDTO pagination)
+    {
+        var queryable = _context.Hangars
+            .Include(x => x.City)
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(pagination.Filter))
+        {
+            //queryable = queryable.Where(x => x.Name.ToLower().Contains(pagination.Filter.ToLower()));
+            queryable = queryable.Where(x => x.City!.Name.ToLower().Contains(pagination.Filter.ToLower()));
+        }
+
+        return new ActionResponse<IEnumerable<Hangar>>
+        {
+            WasSuccess = true,
+            Result = await queryable
+                .OrderBy(x => x.Name)
+                .Paginate(pagination)
+                .ToListAsync()
+        };
+    }
+
+    public async Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination)
+    {
+        var queryable = _context.Hangars.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(pagination.Filter))
+        {
+            //queryable = queryable.Where(x => x.Name.ToLower().Contains(pagination.Filter.ToLower()));
+            queryable = queryable.Where(x => x.City!.Name.ToLower().Contains(pagination.Filter.ToLower()));
+        }
+
+        double count = await queryable.CountAsync();
+        return new ActionResponse<int>
+        {
+            WasSuccess = true,
+            Result = (int)count
         };
     }
 

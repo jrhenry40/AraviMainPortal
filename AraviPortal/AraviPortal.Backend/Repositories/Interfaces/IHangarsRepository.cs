@@ -15,4 +15,8 @@ public interface IHangarsRepository
     Task<ActionResponse<Hangar>> GetAsync(int id);
 
     Task<ActionResponse<IEnumerable<Hangar>>> GetAsync();
+
+    Task<ActionResponse<IEnumerable<Hangar>>> GetAsync(PaginationDTO pagination);
+
+    Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
 }
