@@ -331,7 +331,7 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The country Id is not valid..
+        ///   Looks up a localized string similar to The city Id is not valid..
         /// </summary>
         public static string ERR004 {
             get {
@@ -340,7 +340,7 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The city Id is not valid..
+        ///   Looks up a localized string similar to The hangar Id is not valid..
         /// </summary>
         public static string ERR005 {
             get {

@@ -22,6 +22,9 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddScoped<ICitiesRepository, CitiesRepository>();
 builder.Services.AddScoped<ICitiesUnitOfWork, CitiesUnitOfWork>();
 
+builder.Services.AddScoped<IHangarsRepository, HangarsRepository>();
+builder.Services.AddScoped<IHangarsUnitOfWork, HangarsUnitOfWork>();
+
 var app = builder.Build();
 SeedData(app);
 

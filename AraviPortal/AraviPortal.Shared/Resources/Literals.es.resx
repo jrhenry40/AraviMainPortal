@@ -214,10 +214,10 @@
     <value>Ciudades</value>
   </data>
   <data name="ERR004" xml:space="preserve">
-    <value>El código del país no es válido.</value>
+    <value>El código de la ciudad no es válido.</value>
   </data>
   <data name="ERR005" xml:space="preserve">
-    <value>El código de ciudad no es válido.</value>
+    <value>El código del hangar no es válido.</value>
   </data>
   <data name="Teams" xml:space="preserve">
     <value>Equipos</value>
@@ -244,7 +244,7 @@
     <value>El código del hangar no es válido.</value>
   </data>
   <data name="ERR005A" xml:space="preserve">
-    <value>El código de base no es válido.</value>
+    <value>El código de la base no es válido.</value>
   </data>
   <data name="Hangar" xml:space="preserve">
     <value>Hangar</value>

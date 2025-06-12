@@ -214,10 +214,10 @@
     <value>Cities</value>
   </data>
   <data name="ERR004" xml:space="preserve">
-    <value>The country Id is not valid.</value>
+    <value>The city Id is not valid.</value>
   </data>
   <data name="ERR005" xml:space="preserve">
-    <value>The city Id is not valid.</value>
+    <value>The hangar Id is not valid.</value>
   </data>
   <data name="Teams" xml:space="preserve">
     <value>Teams</value>
