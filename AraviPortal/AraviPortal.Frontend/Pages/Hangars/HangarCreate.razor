@@ -1,0 +1,5 @@
+﻿@page "/hangars/create"
+
+<h3>@Localizer["Create"] @Localizer["Hangar"]</h3>
+
+<HangarForm @ref="hangarForm" HangarDTO="hangarDTO" OnValidSubmit="CreateAsync" ReturnAction="Return" />

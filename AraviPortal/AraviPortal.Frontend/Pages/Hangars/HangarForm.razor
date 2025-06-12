@@ -1,0 +1,31 @@
+﻿<NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation" />
+
+<EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <div class="mb-3">
+        <label>@Localizer["Hangar"]:</label>
+        <div>
+            <InputText class="form-control" @bind-Value="@HangarDTO.Name" />
+            <ValidationMessage For="@(() => HangarDTO.Name)" />
+        </div>
+    </div>
+    <div class="mb-3">
+        <label>@Localizer["City"]:</label>
+        <div>
+            <select class="form-select" @bind="HangarDTO.CityId">
+                <option value="0">@Localizer["SelectACity"]</option>
+                @if (cities is not null)
+                {
+                    @foreach (var city in cities)
+                    {
+                        <option value="@city.Id">@city.Name</option>
+                    }
+                }
+            </select>
+            <ValidationMessage For="@(() => HangarDTO.CityId)" />
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">@Localizer["SaveChanges"]</button>
+    <button class="btn btn-success" @onclick="ReturnAction">@Localizer["Return"]</button>
+</EditForm>
