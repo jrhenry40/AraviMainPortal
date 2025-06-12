@@ -1,5 +1,7 @@
 ﻿using AraviPortal.Backend.Data;
+using AraviPortal.Backend.Helpers;
 using AraviPortal.Backend.Repositories.Interfaces;
+using AraviPortal.Shared.DTOs;
 using AraviPortal.Shared.Responses;
 using Microsoft.EntityFrameworkCore;
 
@@ -134,6 +136,30 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         {
             WasSuccess = false,
             Message = "ERR003"
+        };
+    }
+
+    public virtual async Task<ActionResponse<IEnumerable<T>>> GetAsync(PaginationDTO pagination)
+    {
+        var queryable = _entity.AsQueryable();
+
+        return new ActionResponse<IEnumerable<T>>
+        {
+            WasSuccess = true,
+            Result = await queryable
+                .Paginate(pagination)
+                .ToListAsync()
+        };
+    }
+
+    public virtual async Task<ActionResponse<int>> GetTotalRecordsAsync()
+    {
+        var queryable = _entity.AsQueryable();
+        double count = await queryable.CountAsync();
+        return new ActionResponse<int>
+        {
+            WasSuccess = true,
+            Result = (int)count
         };
     }
 }

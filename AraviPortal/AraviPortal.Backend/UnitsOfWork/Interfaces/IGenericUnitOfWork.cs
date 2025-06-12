@@ -1,4 +1,5 @@
-﻿using AraviPortal.Shared.Responses;
+﻿using AraviPortal.Shared.DTOs;
+using AraviPortal.Shared.Responses;
 
 namespace AraviPortal.Backend.UnitsOfWork.Interfaces;
 
@@ -13,4 +14,8 @@ public interface IGenericUnitOfWork<T> where T : class
     Task<ActionResponse<T>> DeleteAsync(int id);
 
     Task<ActionResponse<T>> UpdateAsync(T entity);
+
+    Task<ActionResponse<IEnumerable<T>>> GetAsync(PaginationDTO pagination);
+
+    Task<ActionResponse<int>> GetTotalRecordsAsync();
 }

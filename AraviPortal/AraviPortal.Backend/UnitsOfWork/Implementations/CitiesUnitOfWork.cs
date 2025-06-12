@@ -1,5 +1,6 @@
 ﻿using AraviPortal.Backend.Repositories.Interfaces;
 using AraviPortal.Backend.UnitsOfWork.Interfaces;
+using AraviPortal.Shared.DTOs;
 using AraviPortal.Shared.Entities;
 using AraviPortal.Shared.Responses;
 
@@ -17,6 +18,10 @@ public class CitiesUnitOfWork : GenericUnitOfWork<City>, ICitiesUnitOfWork
     public override async Task<ActionResponse<IEnumerable<City>>> GetAsync() => await _citiesRepository.GetAsync();
 
     public override async Task<ActionResponse<City>> GetAsync(int id) => await _citiesRepository.GetAsync(id);
+
+    public override async Task<ActionResponse<IEnumerable<City>>> GetAsync(PaginationDTO pagination) => await _citiesRepository.GetAsync(pagination);
+
+    public async Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination) => await _citiesRepository.GetTotalRecordsAsync(pagination);
 
     public async Task<IEnumerable<City>> GetComboAsync() => await _citiesRepository.GetComboAsync();
 }
