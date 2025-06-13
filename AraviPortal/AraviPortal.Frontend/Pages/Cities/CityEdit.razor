@@ -1,12 +1,12 @@
-﻿@page "/cities/edit/{Id:int}"
-
-<h3>@Localizer["Edit"] @Localizer["City"]</h3>
-
-@if (city is null)
+﻿@if (city is null)
 {
     <Loading />
 }
 else
 {
-    <CityForm @ref="cityForm" City="city" OnValidSubmit="EditAsync" ReturnAction="Return" />
+    <MudDialog>
+        <DialogContent>
+            <CityForm @ref="cityForm" City="city" OnValidSubmit="EditAsync" ReturnAction="Return" />
+        </DialogContent>
+    </MudDialog>
 }
