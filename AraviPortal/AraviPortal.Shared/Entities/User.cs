@@ -20,6 +20,7 @@ public class User : IdentityUser
     [Display(Name = "UserType", ResourceType = typeof(Literals))]
     public UserType UserType { get; set; }
 
+    [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Literals))]
     public City City { get; set; } = null!;
 
     [Display(Name = "City", ResourceType = typeof(Literals))]

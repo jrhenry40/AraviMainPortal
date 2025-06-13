@@ -1,4 +1,5 @@
 using AraviPortal.Backend.Data;
+using AraviPortal.Backend.Helpers;
 using AraviPortal.Backend.Repositories.Implementations;
 using AraviPortal.Backend.Repositories.Interfaces;
 using AraviPortal.Backend.UnitsOfWork.Implementations;
@@ -93,6 +94,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["jwtKey"]!)),
         ClockSkew = TimeSpan.Zero
     });
+
+builder.Services.AddScoped<IMailHelper, MailHelper>();
 
 var app = builder.Build();
 SeedData(app);
