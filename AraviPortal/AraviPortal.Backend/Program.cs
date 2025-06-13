@@ -3,6 +3,8 @@ using AraviPortal.Backend.Repositories.Implementations;
 using AraviPortal.Backend.Repositories.Interfaces;
 using AraviPortal.Backend.UnitsOfWork.Implementations;
 using AraviPortal.Backend.UnitsOfWork.Interfaces;
+using AraviPortal.Shared.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -24,6 +26,21 @@ builder.Services.AddScoped<ICitiesUnitOfWork, CitiesUnitOfWork>();
 
 builder.Services.AddScoped<IHangarsRepository, HangarsRepository>();
 builder.Services.AddScoped<IHangarsUnitOfWork, HangarsUnitOfWork>();
+
+builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IUsersUnitOfWork, UsersUnitOfWork>();
+
+builder.Services.AddIdentity<User, IdentityRole>(x =>
+{
+    x.User.RequireUniqueEmail = true;
+    x.Password.RequireDigit = false;
+    x.Password.RequiredUniqueChars = 0;
+    x.Password.RequireLowercase = false;
+    x.Password.RequireNonAlphanumeric = false;
+    x.Password.RequireUppercase = false;
+})
+    .AddEntityFrameworkStores<DataContext>()
+    .AddDefaultTokenProviders();
 
 var app = builder.Build();
 SeedData(app);
