@@ -15,4 +15,8 @@ public class City
     public ICollection<Hangar>? Hangars { get; set; }
 
     public int HangarsCount => Hangars == null ? 0 : Hangars.Count;
+
+    public ICollection<User>? Users { get; set; }
+
+    public int UsersCount => Users == null ? 0 : Users.Count;
 }
