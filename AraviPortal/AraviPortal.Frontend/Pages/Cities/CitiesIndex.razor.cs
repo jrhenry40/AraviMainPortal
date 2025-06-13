@@ -2,6 +2,7 @@ using AraviPortal.Frontend.Repositories;
 using AraviPortal.Frontend.Shared;
 using AraviPortal.Shared.Entities;
 using AraviPortal.Shared.Resources;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using MudBlazor;
@@ -9,6 +10,7 @@ using System.Net;
 
 namespace AraviPortal.Frontend.Pages.Cities;
 
+[Authorize(Roles = "Superadmin")]
 public partial class CitiesIndex
 {
     private List<City>? Cities { get; set; }

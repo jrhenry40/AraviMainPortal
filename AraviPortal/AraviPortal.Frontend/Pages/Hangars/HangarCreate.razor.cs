@@ -1,12 +1,14 @@
 using AraviPortal.Frontend.Repositories;
 using AraviPortal.Shared.DTOs;
 using AraviPortal.Shared.Resources;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using MudBlazor;
 
 namespace AraviPortal.Frontend.Pages.Hangars;
 
+[Authorize(Roles = "Superadmin")]
 public partial class HangarCreate
 {
     private HangarForm? hangarForm;
