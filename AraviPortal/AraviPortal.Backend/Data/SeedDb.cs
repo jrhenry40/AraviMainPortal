@@ -29,7 +29,7 @@ public class SeedDb
     private async Task CheckUsersAsync()
     {
         await CheckUserAsync("Guardian", "IT", "aravi-itsoftware@amentum.com", "3108608778", UserType.Superadmin);
-        await CheckUserAsync("Henry", "Rios", "hrios@yopmail.com", "3213470465", UserType.Superadmin);
+        await CheckUserAsync("Henry", "Rios", "henry.rios@amentum.com", "3213470465", UserType.Superadmin);
         await CheckUserAsync("Adriana", "Reyes", "adriana.reyes@amentum.com", "3108595190", UserType.Superadmin);
     }
 
