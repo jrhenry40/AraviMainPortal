@@ -13,11 +13,13 @@ namespace AraviPortal.Frontend.Pages.Hangars;
 public partial class HangarForm
 {
     private EditContext editContext = null!;
+    private City selectedCity = new();
+    private List<City>? cities;
+    private string? shapeImageMessage;
 
-    protected override void OnInitialized()
-    {
-        editContext = new(HangarDTO);
-    }
+    [Inject] private SweetAlertService SweetAlertService { get; set; } = null!;
+    [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
+    [Inject] private IRepository Repository { get; set; } = null!;
 
     [EditorRequired, Parameter] public HangarDTO HangarDTO { get; set; } = null!;
     [EditorRequired, Parameter] public EventCallback OnValidSubmit { get; set; }
@@ -25,11 +27,10 @@ public partial class HangarForm
 
     public bool FormPostedSuccessfully { get; set; } = false;
 
-    [Inject] private SweetAlertService SweetAlertService { get; set; } = null!;
-    [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
-    [Inject] private IRepository Repository { get; set; } = null!;
-
-    private List<City>? cities;
+    protected override void OnInitialized()
+    {
+        editContext = new(HangarDTO);
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -74,5 +75,24 @@ public partial class HangarForm
         }
 
         context.PreventNavigation();
+    }
+
+    private async Task<IEnumerable<City>> SearchCity(string searchText, CancellationToken cancellationToken)
+    {
+        await Task.Delay(5);
+        if (string.IsNullOrWhiteSpace(searchText))
+        {
+            return cities!;
+        }
+
+        return cities!
+            .Where(x => x.Name.Contains(searchText, StringComparison.InvariantCultureIgnoreCase))
+            .ToList();
+    }
+
+    private void CityChanged(City city)
+    {
+        selectedCity = city;
+        HangarDTO.CityId = city.Id;
     }
 }

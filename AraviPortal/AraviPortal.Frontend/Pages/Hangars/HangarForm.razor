@@ -2,30 +2,35 @@
 
 <EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
-    <div class="mb-3">
-        <label>@Localizer["Hangar"]:</label>
-        <div>
-            <InputText class="form-control" @bind-Value="@HangarDTO.Name" />
-            <ValidationMessage For="@(() => HangarDTO.Name)" />
-        </div>
-    </div>
-    <div class="mb-3">
-        <label>@Localizer["City"]:</label>
-        <div>
-            <select class="form-select" @bind="HangarDTO.CityId">
-                <option value="0">@Localizer["SelectACity"]</option>
-                @if (cities is not null)
-                {
-                    @foreach (var city in cities)
-                    {
-                        <option value="@city.Id">@city.Name</option>
-                    }
-                }
-            </select>
-            <ValidationMessage For="@(() => HangarDTO.CityId)" />
-        </div>
-    </div>
 
-    <button class="btn btn-primary" type="submit">@Localizer["SaveChanges"]</button>
-    <button class="btn btn-success" @onclick="ReturnAction">@Localizer["Return"]</button>
+    <MudTextField Label="@Localizer["Hangar"]"
+                  @bind-Value="@HangarDTO.Name"
+                  For="@(() => HangarDTO.Name)"
+                  Class="mb-4" />
+
+    <MudAutocomplete T="City"
+                     Label=@Localizer["City"]
+                     Placeholder=@Localizer["SelectACity"]
+                     SearchFunc="SearchCity"
+                     Value="selectedCity"
+                     ValueChanged="CityChanged"
+                     ToStringFunc="@(e=> e==null?null : $"{e.Name}")">
+        <ItemTemplate Context="itemContext">
+            @itemContext.Name
+        </ItemTemplate>
+    </MudAutocomplete>
+    <div><p></p></div>
+    <MudButton Variant="Variant.Outlined"
+               StartIcon="@Icons.Material.Filled.ArrowBack"
+               Color="Color.Info"
+               OnClick="ReturnAction">
+        @Localizer["Return"]
+    </MudButton>
+
+    <MudButton Variant="Variant.Outlined"
+               StartIcon="@Icons.Material.Filled.Check"
+               Color="Color.Primary"
+               ButtonType="ButtonType.Submit">
+        @Localizer["SaveChanges"]
+    </MudButton>
 </EditForm>

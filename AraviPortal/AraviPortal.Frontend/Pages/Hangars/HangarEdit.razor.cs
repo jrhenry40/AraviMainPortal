@@ -5,6 +5,8 @@ using AraviPortal.Shared.Resources;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
+using MudBlazor;
+using static MudBlazor.Colors;
 
 namespace AraviPortal.Frontend.Pages.Hangars;
 
@@ -12,10 +14,11 @@ public partial class HangarEdit
 {
     private HangarDTO? hangarDTO;
     private HangarForm? hangarForm;
+    private City selectedCity = new();
 
     [Inject] private NavigationManager NavigationManager { get; set; } = null!;
     [Inject] private IRepository Repository { get; set; } = null!;
-    [Inject] private SweetAlertService SweetAlertService { get; set; } = null!;
+    [Inject] private ISnackbar Snackbar { get; set; } = null!;
     [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
 
     [Parameter] public int Id { get; set; }
@@ -33,7 +36,7 @@ public partial class HangarEdit
             else
             {
                 var messageError = await responseHttp.GetErrorMessageAsync();
-                await SweetAlertService.FireAsync(Localizer["Error"], messageError, SweetAlertIcon.Error);
+                Snackbar.Add(messageError!, Severity.Error);
             }
         }
         else
@@ -45,6 +48,7 @@ public partial class HangarEdit
                 Name = hangar!.Name,
                 CityId = hangar.CityId
             };
+            selectedCity = hangar.City!;
         }
     }
 
@@ -55,19 +59,12 @@ public partial class HangarEdit
         if (responseHttp.Error)
         {
             var mensajeError = await responseHttp.GetErrorMessageAsync();
-            await SweetAlertService.FireAsync(Localizer["Error"], Localizer[mensajeError!], SweetAlertIcon.Error);
+            Snackbar.Add(Localizer[mensajeError!], Severity.Error);
             return;
         }
 
         Return();
-        var toast = SweetAlertService.Mixin(new SweetAlertOptions
-        {
-            Toast = true,
-            Position = SweetAlertPosition.BottomEnd,
-            ShowConfirmButton = true,
-            Timer = 3000
-        });
-        toast?.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["RecordSavedOk"]);
+        Snackbar.Add(Localizer["RecordSavedOk"], Severity.Success);
     }
 
     private void Return()

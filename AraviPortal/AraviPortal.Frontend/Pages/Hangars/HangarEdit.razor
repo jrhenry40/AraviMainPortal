@@ -1,12 +1,12 @@
-﻿@page "/hangars/edit/{Id:int}"
-
-<h3>@Localizer["Edit"] @Localizer["Hangar"]</h3>
-
-@if (hangarDTO is null)
+﻿@if (hangarDTO is null)
 {
     <Loading />
 }
 else
 {
-    <HangarForm @ref="hangarForm" HangarDTO="hangarDTO" OnValidSubmit="EditAsync" ReturnAction="Return"/>
+    <MudDialog>
+        <DialogContent>
+            <HangarForm @ref="hangarForm" HangarDTO="hangarDTO" OnValidSubmit="EditAsync" ReturnAction="Return" />
+        </DialogContent>
+    </MudDialog>
 }

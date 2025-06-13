@@ -103,11 +103,11 @@ public partial class HangarsIndex
                 {
                     { "Id", id }
                 };
-            dialog = DialogService.Show<CityEdit>($"{Localizer["Edit"]} {Localizer["Hangar"]}", parameters, options);
+            dialog = DialogService.Show<HangarEdit>($"{Localizer["Edit"]} {Localizer["Hangar"]}", parameters, options);
         }
         else
         {
-            dialog = DialogService.Show<CityCreate>($"{Localizer["New"]} {Localizer["Hangar"]}", options);
+            dialog = DialogService.Show<HangarCreate>($"{Localizer["New"]} {Localizer["Hangar"]}", options);
         }
 
         var result = await dialog.Result;
