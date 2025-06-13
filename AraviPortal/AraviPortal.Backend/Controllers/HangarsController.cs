@@ -1,11 +1,14 @@
 ﻿using AraviPortal.Backend.UnitsOfWork.Interfaces;
 using AraviPortal.Shared.DTOs;
 using AraviPortal.Shared.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AraviPortal.Backend.Controllers;
 
 [ApiController]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 [Route("api/[controller]")]
 public class HangarsController : GenericController<Hangar>
 {

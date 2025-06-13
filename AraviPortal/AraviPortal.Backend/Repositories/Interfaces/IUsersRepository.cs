@@ -1,4 +1,5 @@
-﻿using AraviPortal.Shared.Entities;
+﻿using AraviPortal.Shared.DTOs;
+using AraviPortal.Shared.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace AraviPortal.Backend.Repositories.Interfaces;
@@ -14,4 +15,8 @@ public interface IUsersRepository
     Task AddUserToRoleAsync(User user, string roleName);
 
     Task<bool> IsUserInRoleAsync(User user, string roleName);
+
+    Task<SignInResult> LoginAsync(LoginDTO model);
+
+    Task LogoutAsync();
 }

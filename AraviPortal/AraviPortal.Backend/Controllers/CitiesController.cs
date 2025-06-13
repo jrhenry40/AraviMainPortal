@@ -1,13 +1,14 @@
-﻿using AraviPortal.Backend.Data;
-using AraviPortal.Backend.UnitsOfWork.Interfaces;
+﻿using AraviPortal.Backend.UnitsOfWork.Interfaces;
 using AraviPortal.Shared.DTOs;
 using AraviPortal.Shared.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace AraviPortal.Backend.Controllers;
 
 [ApiController]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 [Route("api/[controller]")]
 public class CitiesController : GenericController<City>
 {
