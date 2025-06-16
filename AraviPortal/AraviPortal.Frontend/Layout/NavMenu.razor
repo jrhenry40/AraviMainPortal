@@ -5,13 +5,17 @@
         <Authorized>
             <MudExpansionPanels MultiExpansion="true">
                 <MudExpansionPanel Text=@Localizer["AdministratorMenu"]>
-                    <MudNavLink Href="/countries" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Public">@Localizer["Countries"]</MudNavLink>
+                    <MudNavLink Href="/cities" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Public">@Localizer["Cities"]</MudNavLink>
                     <MudDivider />
-                    <MudNavLink Href="/cities" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Groups">@Localizer["Cities"]</MudNavLink>
+                    <MudNavLink Href="/hangars" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.LocationCity">@Localizer["Hangars"]</MudNavLink>
+                    <MudDivider />
+                    <MudNavLink Href="/users" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.People">@Localizer["Users"]</MudNavLink>
+                    <MudDivider />
                 </MudExpansionPanel>
             </MudExpansionPanels>
         </Authorized>
     </AuthorizeView>
+    <MudDivider />
     <MudExpansionPanels MultiExpansion="true">
         <MudExpansionPanel Text=@Localizer["ITcourse"]>
             <MudDivider />

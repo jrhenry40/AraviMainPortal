@@ -1,7 +1,9 @@
 ﻿using AraviPortal.Backend.Data;
+using AraviPortal.Backend.Helpers;
 using AraviPortal.Backend.Repositories.Interfaces;
 using AraviPortal.Shared.DTOs;
 using AraviPortal.Shared.Entities;
+using AraviPortal.Shared.Responses;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -103,5 +105,46 @@ public class UsersRepository : IUsersRepository
     public async Task<IdentityResult> ResetPasswordAsync(User user, string token, string password)
     {
         return await _userManager.ResetPasswordAsync(user, token, password);
+    }
+
+    public async Task<ActionResponse<IEnumerable<User>>> GetAsync(PaginationDTO pagination)
+    {
+        var queryable = _context.Users
+            .Include(x => x.City)
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(pagination.Filter))
+        {
+            queryable = queryable.Where(x => x.FirstName.ToLower().Contains(pagination.Filter.ToLower()) ||
+                                             x.LastName.ToLower().Contains(pagination.Filter.ToLower()));
+        }
+
+        return new ActionResponse<IEnumerable<User>>
+        {
+            WasSuccess = true,
+            Result = await queryable
+                .OrderBy(x => x.FirstName)
+                .ThenBy(x => x.LastName)
+                .Paginate(pagination)
+                .ToListAsync()
+        };
+    }
+
+    public async Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination)
+    {
+        var queryable = _context.Users.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(pagination.Filter))
+        {
+            queryable = queryable.Where(x => x.FirstName.ToLower().Contains(pagination.Filter.ToLower()) ||
+                                             x.LastName.ToLower().Contains(pagination.Filter.ToLower()));
+        }
+
+        double count = await queryable.CountAsync();
+        return new ActionResponse<int>
+        {
+            WasSuccess = true,
+            Result = (int)count
+        };
     }
 }

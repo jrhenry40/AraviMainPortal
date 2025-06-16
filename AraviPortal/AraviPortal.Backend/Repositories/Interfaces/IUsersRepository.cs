@@ -1,5 +1,6 @@
 ﻿using AraviPortal.Shared.DTOs;
 using AraviPortal.Shared.Entities;
+using AraviPortal.Shared.Responses;
 using Microsoft.AspNetCore.Identity;
 
 namespace AraviPortal.Backend.Repositories.Interfaces;
@@ -33,4 +34,8 @@ public interface IUsersRepository
     Task<string> GeneratePasswordResetTokenAsync(User user);
 
     Task<IdentityResult> ResetPasswordAsync(User user, string token, string password);
+
+    Task<ActionResponse<IEnumerable<User>>> GetAsync(PaginationDTO pagination);
+
+    Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
 }

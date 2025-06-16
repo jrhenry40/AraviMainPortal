@@ -224,6 +224,30 @@ public class AccountsController : ControllerBase
         return NoContent();
     }
 
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [HttpGet("paginated")]
+    public async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)
+    {
+        var response = await _usersUnitOfWork.GetAsync(pagination);
+        if (response.WasSuccess)
+        {
+            return Ok(response.Result);
+        }
+        return BadRequest();
+    }
+
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [HttpGet("totalRecordsPaginated")]
+    public async Task<IActionResult> GetPagesAsync([FromQuery] PaginationDTO pagination)
+    {
+        var action = await _usersUnitOfWork.GetTotalRecordsAsync(pagination);
+        if (action.WasSuccess)
+        {
+            return Ok(action.Result);
+        }
+        return BadRequest();
+    }
+
     [HttpPost("RecoverPassword")]
     public async Task<IActionResult> RecoverPasswordAsync([FromBody] EmailDTO model)
     {
