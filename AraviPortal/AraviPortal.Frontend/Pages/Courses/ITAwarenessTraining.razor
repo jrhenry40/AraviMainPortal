@@ -1,0 +1,43 @@
+﻿@page "/ITAwarenessTraining"
+
+<MudLayout>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Medium" Class="mud-py-8">
+            <MudPaper Elevation="6" Class="pa-6 text-center rounded-lg">
+                <MudText Typo="Typo.h4" Color="Color.Primary" Class="mud-mb-4">IT Awareness Training</MudText>
+
+                <div class="mud-mb-4">
+                    @if (!string.IsNullOrEmpty(VideoUrl))
+                    {
+                        @* Añadir @ref="videoElement" para obtener una referencia al elemento video *@
+                        <video @ref="videoElement" controls autoplay muted style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                            <source src="@VideoUrl" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                    }
+                    else
+                    {
+                        <Loading />
+                    }
+                </div>
+
+                <MudGrid Justify="Justify.Center" Spacing="4" Class="mud-mt-6">
+                    <MudItem>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" StartIcon="@Icons.Material.Filled.Home"
+                                   OnClick="GoHome">
+                            Ir al Menú del Curso
+                        </MudButton>
+                    </MudItem>
+                    <MudItem>
+                        <MudButton Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Large" EndIcon="@Icons.Material.Filled.ArrowForward"
+                                   OnClick="GoToNextPage"
+                                   Disabled="@_isNextButtonDisabled">
+                            @* Aquí controlamos el estado del botón *@
+                            Siguiente Video
+                        </MudButton>
+                    </MudItem>
+                </MudGrid>
+            </MudPaper>
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>

@@ -417,4 +417,16 @@
   <data name="ForgottenYourPassword" xml:space="preserve">
     <value>¿Has olvidado tu contraseña?</value>
   </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Esta Activo</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>Comentarios</value>
+  </data>
+  <data name="Activate" xml:space="preserve">
+    <value>Activar</value>
+  </data>
+  <data name="Deactivate" xml:space="preserve">
+    <value>Desactivar</value>
+  </data>
 </root>

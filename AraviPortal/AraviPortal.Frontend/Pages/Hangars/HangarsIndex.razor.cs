@@ -4,6 +4,7 @@ using AraviPortal.Frontend.Shared;
 using AraviPortal.Shared.Entities;
 using AraviPortal.Shared.Resources;
 using CurrieTechnologies.Razor.SweetAlert2;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using MudBlazor;
@@ -12,6 +13,7 @@ using System.Runtime.InteropServices;
 
 namespace AraviPortal.Frontend.Pages.Hangars;
 
+[Authorize(Roles = "Superadmin")]
 public partial class HangarsIndex
 {
     private List<Hangar>? Hangars { get; set; }

@@ -1,0 +1,24 @@
+﻿@page "/ITCourse"
+
+<MudLayout>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Medium" Class="mud-py-8">
+            <MudPaper Elevation="3" Class="pa-4 text-center">
+                <h3 class="align-content-center">Bienvenidos al curso de sensibilización de IT</h3>
+                <MudImage Src="images/fondo_amentum.jpg"
+                          Alt="Imagen del curso de sensibilización de IT" Class="mud-mb-4" Style="max-width: 100%; height: auto;" />
+                <MudGrid Justify="Justify.Center" Spacing="4">
+                    <MudItem>
+                        <MudButton Variant="Variant.Filled" Color="Color.Secondary" EndIcon="@Icons.Material.Filled.ArrowForward" OnClick="GoToNextPage">
+                            Inicia el curso
+                        </MudButton>
+                    </MudItem>
+                </MudGrid>
+            </MudPaper>
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+
+
+@* <p>Si el video no se reproduce, haz clic <a href="@VideoUrl" target="_blank"><u>aquí</u></a> para descargarlo o verlo directamente.</p> *@
