@@ -438,4 +438,28 @@
   <data name="Confirmed" xml:space="preserve">
     <value>Confirmed</value>
   </data>
+  <data name="TextOption" xml:space="preserve">
+    <value>Text option</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Statement" xml:space="preserve">
+    <value>Statement</value>
+  </data>
+  <data name="QuestionType" xml:space="preserve">
+    <value>Type of question</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="IsCorrect" xml:space="preserve">
+    <value>Is correct</value>
+  </data>
+  <data name="ValueFalseTrue" xml:space="preserve">
+    <value>Value False/True</value>
+  </data>
 </root>
