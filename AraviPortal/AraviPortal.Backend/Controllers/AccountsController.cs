@@ -77,6 +77,18 @@ public class AccountsController : ControllerBase
         return NoContent();
     }
 
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Superadmin,Admin")]
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetUserByIdAsync(Guid id)
+    {
+        var user = await _usersUnitOfWork.GetUserAsync(id);
+        if (user == null)
+        {
+            return NotFound("ERR009");
+        }
+        return Ok(user);
+    }
+
     [HttpPost("Login")]
     public async Task<IActionResult> LoginAsync([FromBody] LoginDTO model)
     {
@@ -191,6 +203,53 @@ public class AccountsController : ControllerBase
         {
             return BadRequest(ex.Message);
         }
+    }
+
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Superadmin,Admin")] // Asegúrate de que solo los admins puedan usar esto
+    [HttpPut("UpdateUserByAdmin")] // Nuevo endpoint
+    public async Task<IActionResult> UpdateUserByAdminAsync([FromBody] UserEditDTO model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var user = await _usersUnitOfWork.GetUserAsync(new Guid(model.Id)); // Obtener el usuario por ID
+        if (user == null)
+        {
+            return NotFound("ERR009"); // Usuario no encontrado
+        }
+
+        // Opcional: Validar que el admin no se intente cambiar a sí mismo si hay restricciones
+        // if (user.Id == User.Identity!.Name && model.UserType.ToString() != user.UserType.ToString())
+        // {
+        //     return BadRequest("No puedes cambiar tu propio rol.");
+        // }
+
+        // Actualizar las propiedades del usuario desde el DTO
+        user.FirstName = model.FirstName;
+        user.LastName = model.LastName;
+        user.PhoneNumber = model.PhoneNumber;
+        user.CityId = model.CityId;
+        // El UserType se manejará en el repositorio al cambiar los roles
+
+        // Obtener la ciudad para la entidad User, similar a CreateUser
+        var city = await _context.Cities.FindAsync(model.CityId);
+        if (city == null)
+        {
+            return BadRequest("ERR004"); // Ciudad no encontrada
+        }
+        user.City = city;
+
+        // Llamar al nuevo método del UnitOfWork para actualizar el usuario y su rol
+        var result = await _usersUnitOfWork.UpdateUserByAdminAsync(user, model.UserType);
+
+        if (result.Succeeded)
+        {
+            return NoContent(); // O Ok(BuildToken(user)) si quieres devolver el token actualizado
+        }
+
+        return BadRequest(result.Errors.FirstOrDefault()!.Description);
     }
 
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]

@@ -1,0 +1,16 @@
+﻿@page "/users/editadmin/{UserId:guid}"
+
+<MudText Typo="Typo.h5" Class="mb-4">@Localizer["EditUser"]</MudText>
+
+@if (loading)
+{
+    <Loading />
+}
+else if (userEditDTO != null)
+{
+    <UserForm UserEditDTO="userEditDTO" OnValidSubmit="EditUser" ReturnAction="Return" />
+}
+else
+{
+    <MudText Typo="Typo.body1">@Localizer["UserNotFound"]</MudText>
+}

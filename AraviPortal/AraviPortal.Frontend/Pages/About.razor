@@ -1,0 +1,84 @@
+﻿@page "/about"
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="my-8">
+    <MudGrid Justify="Justify.Center">
+        <MudItem xs="12" sm="10" md="8">
+            <MudPaper Elevation="0" Class="pa-6">
+                <MudText Typo="Typo.h3" Align="Align.Center" GutterBottom="true" Color="Color.Primary">
+                    @Localizer["About"] @Localizer["Us"]
+                </MudText>
+                <MudText Typo="Typo.subtitle1" Align="Align.Center" GutterBottom="true">
+                    @Localizer["AboutTitle"]
+                </MudText>
+
+                <MudDivider Class="my-6" />
+
+                <MudText Typo="Typo.h5" GutterBottom="true" Color="Color.Primary" Align="Align.Center">
+                    @Localizer["MissionVisionValues"]
+                </MudText>
+                <MudText Typo="Typo.body1" Class="mb-4">
+                    @Localizer["MissionVision"]
+                </MudText>
+                <MudText Typo="Typo.body1" Class="mb-6">
+                    @Localizer["ValueText"]
+
+                    <MudList Dense="true" Class="mb-6" T="object">
+                        <MudListItem Icon="@Icons.Material.Filled.CheckCircleOutline">
+                            @Localizer["ValueText1"]
+                        </MudListItem>
+                        <MudListItem Icon="@Icons.Material.Filled.CheckCircleOutline">
+                            @Localizer["ValueText2"]
+                        </MudListItem>
+                        <MudListItem Icon="@Icons.Material.Filled.CheckCircleOutline">
+                            @Localizer["ValueText3"]
+                        </MudListItem>
+                        <MudListItem Icon="@Icons.Material.Filled.CheckCircleOutline">
+                            @Localizer["ValueText4"]
+                        </MudListItem>
+                    </MudList>
+                </MudText>
+                <MudText Typo="Typo.h5" GutterBottom="true" Color="Color.Primary" Align="Align.Center">
+                    @Localizer["WhatDifferent"]
+                </MudText>
+                <MudText Typo="Typo.body1" Class="mb-4">
+                    @Localizer["WhatDifferentText"]
+                </MudText>
+                <MudList Dense="true" Class="mb-6" T="object">
+                    <MudListItem Icon="@Icons.Material.Filled.CheckCircleOutline">
+                        <b>@Localizer["Net9"]</b> @Localizer["WhatDifferentText1"]
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.CheckCircleOutline">
+                        <b>@Localizer["Blazor"]</b> @Localizer["WhatDifferentText2"]
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.CheckCircleOutline">
+                        <b>@Localizer["MudBlazor"]</b> @Localizer["WhatDifferentText3"]
+                    </MudListItem>
+                </MudList>
+                <MudText Typo="Typo.body1" Class="mb-6">
+                    @Localizer["WhatDifferentTextB"]
+                </MudText>
+
+                <MudText Typo="Typo.h5" GutterBottom="true" Color="Color.Primary" Align="Align.Center">
+                    @Localizer["OurTeam"]
+                </MudText>
+                <MudText Typo="Typo.body1" Class="mb-6">
+                    @Localizer["OurTeamText"]
+                </MudText>
+                <MudList Dense="true" Class="mb-6" T="object">
+                    <MudListItem Icon="@Icons.Material.Filled.Person2">
+                        <b>Adriana Reyes - @Localizer["DatabaseAdmin"]</b>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Person">
+                        <b>Henry Rios - @Localizer["Developer"]</b>
+                    </MudListItem>
+                </MudList>
+                <MudDivider Class="my-6" />
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+    <MudDivider Class="my-6" /> @* Nueva línea divisoria antes del footer *@
+
+    <MudText Typo="Typo.body2" Align="Align.Center" Class="mt-4">
+        IT TEAM ARAVI <MudIcon Icon="@Icons.Material.Filled.Copyright" Size="Size.Small" /> @DateTime.Now.Year.ToString()
+    </MudText>
+</MudContainer>

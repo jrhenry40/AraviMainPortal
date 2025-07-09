@@ -1,0 +1,42 @@
+﻿<NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation" />
+<EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudCard Class="pa-4">
+        <MudCardContent>
+            <MudTextField Label="@Localizer["FirstName"]" @bind-Value="@UserEditDTO.FirstName" For="@(() => UserEditDTO.FirstName)" Class="mb-4" />
+            <MudTextField Label="@Localizer["LastName"]" @bind-Value="@UserEditDTO.LastName" For="@(() => UserEditDTO.LastName)" Class="mb-4" />
+            <MudTextField Label="@Localizer["PhoneNumber"]" @bind-Value="@UserEditDTO.PhoneNumber" For="@(() => UserEditDTO.PhoneNumber)" Class="mb-4" />
+
+            <MudAutocomplete T="City"
+                             Label="@Localizer["City"]"
+                             Placeholder="@Localizer["SelectACity"]"
+                             SearchFunc="SearchCity"
+                             Value="@selectedCity" 
+                             ValueChanged="@CityChanged" 
+                             ToStringFunc="@(e=> e==null?null : $"{e.Name}")"
+                             Class="mb-4" />
+
+            <MudSelect T="UserType"
+                       Label="@Localizer["UserType"]"
+                       @bind-Value="@UserEditDTO.UserType"
+                       For="@(() => UserEditDTO.UserType)"
+                       Variant="Variant.Text"
+                       Dense="true"
+                       FullWidth="true"
+                       Class="mb-4">
+                @foreach (UserType type in Enum.GetValues(typeof(UserType)))
+                {
+                    <MudSelectItem Value="@type">@type.ToString()</MudSelectItem>
+                }
+            </MudSelect>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.ArrowBack" Color="Color.Info" OnClick="ReturnAction">
+                @Localizer["Return"]
+            </MudButton>
+            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Check" Color="Color.Primary" ButtonType="ButtonType.Submit">
+                @Localizer["SaveChanges"]
+            </MudButton>
+        </MudCardActions>
+    </MudCard>
+</EditForm>

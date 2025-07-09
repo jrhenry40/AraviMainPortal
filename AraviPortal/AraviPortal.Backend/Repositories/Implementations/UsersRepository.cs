@@ -3,6 +3,7 @@ using AraviPortal.Backend.Helpers;
 using AraviPortal.Backend.Repositories.Interfaces;
 using AraviPortal.Shared.DTOs;
 using AraviPortal.Shared.Entities;
+using AraviPortal.Shared.Enums;
 using AraviPortal.Shared.Responses;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -146,5 +147,26 @@ public class UsersRepository : IUsersRepository
             WasSuccess = true,
             Result = (int)count
         };
+    }
+
+    public async Task<IdentityResult> UpdateUserByAdminAsync(User user, UserType newRole)
+    {
+        var currentRoles = await _userManager.GetRolesAsync(user);
+
+        var removeResult = await _userManager.RemoveFromRolesAsync(user, currentRoles);
+        if (!removeResult.Succeeded)
+        {
+            return removeResult;
+        }
+
+        var addResult = await _userManager.AddToRoleAsync(user, newRole.ToString());
+        if (!addResult.Succeeded)
+        {
+            return addResult;
+        }
+
+        user.UserType = newRole;
+
+        return await _userManager.UpdateAsync(user);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AraviPortal.Shared.DTOs;
 using AraviPortal.Shared.Entities;
+using AraviPortal.Shared.Enums;
 using AraviPortal.Shared.Responses;
 using Microsoft.AspNetCore.Identity;
 
@@ -38,4 +39,6 @@ public interface IUsersRepository
     Task<ActionResponse<IEnumerable<User>>> GetAsync(PaginationDTO pagination);
 
     Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
+
+    Task<IdentityResult> UpdateUserByAdminAsync(User user, UserType newRole);
 }

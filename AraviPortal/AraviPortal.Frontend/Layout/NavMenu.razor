@@ -1,27 +1,35 @@
 ﻿<MudNavMenu>
     <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Rounded.Home">@Localizer["Home"]</MudNavLink>
     <MudDivider />
+
     <AuthorizeView Roles="Superadmin">
         <Authorized>
-            <MudExpansionPanels MultiExpansion="true">
-                <MudExpansionPanel Text=@Localizer["AdministratorMenu"]>
+            <MudNavGroup Title="@Localizer["AdministratorMenu"]" Icon="@Icons.Material.Filled.AdminPanelSettings" Expanded="true">
+                <MudDivider />
+                <MudNavGroup Title="@Localizer["Evaluation"]" Icon="@Icons.Material.Filled.Assignment">
+                    <MudNavLink Href="/categories" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Category">@Localizer["Categories"]</MudNavLink>
+                </MudNavGroup>
+                <MudDivider />
+                <MudNavGroup Title="@Localizer["Location"]" Icon="@Icons.Material.Filled.LocationOn">
                     <MudNavLink Href="/cities" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Public">@Localizer["Cities"]</MudNavLink>
-                    <MudDivider />
                     <MudNavLink Href="/hangars" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.LocationCity">@Localizer["Hangars"]</MudNavLink>
-                    <MudDivider />
+                </MudNavGroup>
+                <MudDivider />
+                <MudNavGroup Title="@Localizer["Users"]" Icon="@Icons.Material.Filled.People">
                     <MudNavLink Href="/users" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.People">@Localizer["Users"]</MudNavLink>
-                    <MudDivider />
-                </MudExpansionPanel>
-            </MudExpansionPanels>
+                </MudNavGroup>
+            </MudNavGroup>
         </Authorized>
     </AuthorizeView>
+
     <MudDivider />
-    <MudExpansionPanels MultiExpansion="true">
-        <MudExpansionPanel Text=@Localizer["ITcourse"]>
-            <MudDivider />
-            <MudNavLink Href="/ITCourse" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.LaptopChromebook">@Localizer["Curso IT"]</MudNavLink>
-        </MudExpansionPanel>
-    </MudExpansionPanels>
+    <AuthorizeView Roles="User, Superadmin">
+        <Authorized>
+            <MudNavGroup Title="@Localizer["ITcourse"]" Icon="@Icons.Material.Filled.School" Expanded="true">
+                <MudNavLink Href="/ITCourse" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.LaptopChromebook">@Localizer["ITCourse"]</MudNavLink>
+            </MudNavGroup>
+        </Authorized>
+    </AuthorizeView>
     <MudDivider />
     <MudNavLink Href="/about" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Info">@Localizer["About"]</MudNavLink>
 </MudNavMenu>

@@ -462,4 +462,107 @@
   <data name="ValueFalseTrue" xml:space="preserve">
     <value>Value False/True</value>
   </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Evaluation" xml:space="preserve">
+    <value>Evaluation</value>
+  </data>
+  <data name="ITAwarenessTraining" xml:space="preserve">
+    <value>IT Awareness Training</value>
+  </data>
+  <data name="CourseMenu" xml:space="preserve">
+    <value>Course menu</value>
+  </data>
+  <data name="NextVideo" xml:space="preserve">
+    <value>Next video</value>
+  </data>
+  <data name="StartCourse" xml:space="preserve">
+    <value>Start course</value>
+  </data>
+  <data name="WelcomeCourse" xml:space="preserve">
+    <value>Welcome to the IT awareness course.</value>
+  </data>
+  <data name="AccessPublications" xml:space="preserve">
+    <value>Access To Publications</value>
+  </data>
+  <data name="PreviousVideo" xml:space="preserve">
+    <value>Previous video</value>
+  </data>
+  <data name="PIIandCybersecurity" xml:space="preserve">
+    <value>PII and cybersecurity</value>
+  </data>
+  <data name="Us" xml:space="preserve">
+    <value>us</value>
+  </data>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>Promoting innovation and new technologies for the ARAVI program.</value>
+  </data>
+  <data name="MissionVisionValues" xml:space="preserve">
+    <value>Our Mission, Vision, and Values</value>
+  </data>
+  <data name="MissionVision" xml:space="preserve">
+    <value>At AMENTUM, our mission is to provide advanced engineering and technology solutions to the most important challenges in science, security, and sustainability. Our vision is to create a secure and vibrant future.</value>
+  </data>
+  <data name="ValueText" xml:space="preserve">
+    <value>Our core values are:</value>
+  </data>
+  <data name="ValueText1" xml:space="preserve">
+    <value>We realize breakthroughs by continuously reinventing.</value>
+  </data>
+  <data name="ValueText2" xml:space="preserve">
+    <value>We deliver on missions by meeting every commitment.</value>
+  </data>
+  <data name="ValueText3" xml:space="preserve">
+    <value>We take on challenges with courage.</value>
+  </data>
+  <data name="ValueText4" xml:space="preserve">
+    <value>We embrace collaboration &amp; employee engagement.</value>
+  </data>
+  <data name="WhatDifferent" xml:space="preserve">
+    <value>What makes us different? Cutting-edge technology.</value>
+  </data>
+  <data name="WhatDifferentText" xml:space="preserve">
+    <value>What really sets us apart at AMENTUM is our focus on technological innovation and user experience.
+We develop our solutions using the most modern and robust platforms:</value>
+  </data>
+  <data name="WhatDifferentText1" xml:space="preserve">
+    <value>We leverage the latest version of the .NET platform to build secure, scalable, and high-performance applications.</value>
+  </data>
+  <data name="WhatDifferentText2" xml:space="preserve">
+    <value>We offer interactive and fast web experiences, directly in the browser, with the power and reach of C# code.</value>
+  </data>
+  <data name="WhatDifferentText3" xml:space="preserve">
+    <value>We create modern, intuitive, and responsive user interfaces, ensuring that our applications are easy to use and visually appealing on any device.</value>
+  </data>
+  <data name="WhatDifferentTextB" xml:space="preserve">
+    <value>This technological combination allows us to deliver agile, efficient, and future-proof solutions, ensuring that your technology investment is long-lasting and effective.</value>
+  </data>
+  <data name="OurTeam" xml:space="preserve">
+    <value>Meet our team</value>
+  </data>
+  <data name="OurTeamText" xml:space="preserve">
+    <value>Behind every successful project is a team of passionate professionals. In the IT department, we have experts in software development, business consulting, and user experience design, all dedicated to providing IT solutions that are at the forefront of new technologies. We believe in collaboration, continuous learning, and delivering results that exceed expectations.</value>
+  </data>
+  <data name="DatabaseAdmin" xml:space="preserve">
+    <value>Database administrator</value>
+  </data>
+  <data name="Developer" xml:space="preserve">
+    <value>Software administrator</value>
+  </data>
+  <data name="Net9" xml:space="preserve">
+    <value>.NET9:</value>
+  </data>
+  <data name="MudBlazor" xml:space="preserve">
+    <value>MudBlazor:</value>
+  </data>
+  <data name="Blazor" xml:space="preserve">
+    <value>Blazor WebAssembly:</value>
+  </data>
+  <data name="ERR009" xml:space="preserve">
+    <value>The user Id is not valid.</value>
+  </data>
 </root>

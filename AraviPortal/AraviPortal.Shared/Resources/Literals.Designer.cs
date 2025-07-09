@@ -70,6 +70,24 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Promoting innovation and new technologies for the ARAVI program..
+        /// </summary>
+        public static string AboutTitle {
+            get {
+                return ResourceManager.GetString("AboutTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Access To Publications.
+        /// </summary>
+        public static string AccessPublications {
+            get {
+                return ResourceManager.GetString("AccessPublications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Actions.
         /// </summary>
         public static string Actions {
@@ -151,11 +169,29 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Blazor WebAssembly:.
+        /// </summary>
+        public static string Blazor {
+            get {
+                return ResourceManager.GetString("Blazor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categories.
+        /// </summary>
+        public static string Categories {
+            get {
+                return ResourceManager.GetString("Categories", resourceCulture);
             }
         }
         
@@ -268,6 +304,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Course menu.
+        /// </summary>
+        public static string CourseMenu {
+            get {
+                return ResourceManager.GetString("CourseMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
         public static string Create {
@@ -282,6 +327,15 @@ namespace AraviPortal.Shared.Resources {
         public static string CurrentPassword {
             get {
                 return ResourceManager.GetString("CurrentPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Database administrator.
+        /// </summary>
+        public static string DatabaseAdmin {
+            get {
+                return ResourceManager.GetString("DatabaseAdmin", resourceCulture);
             }
         }
         
@@ -318,6 +372,15 @@ namespace AraviPortal.Shared.Resources {
         public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Software administrator.
+        /// </summary>
+        public static string Developer {
+            get {
+                return ResourceManager.GetString("Developer", resourceCulture);
             }
         }
         
@@ -448,11 +511,29 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The user Id is not valid..
+        /// </summary>
+        public static string ERR009 {
+            get {
+                return ResourceManager.GetString("ERR009", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluation.
+        /// </summary>
+        public static string Evaluation {
+            get {
+                return ResourceManager.GetString("Evaluation", resourceCulture);
             }
         }
         
@@ -547,6 +628,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IT Awareness Training.
+        /// </summary>
+        public static string ITAwarenessTraining {
+            get {
+                return ResourceManager.GetString("ITAwarenessTraining", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IT course.
         /// </summary>
         public static string ITcourse {
@@ -579,6 +669,15 @@ namespace AraviPortal.Shared.Resources {
         public static string LengthField {
             get {
                 return ResourceManager.GetString("LengthField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string Location {
+            get {
+                return ResourceManager.GetString("Location", resourceCulture);
             }
         }
         
@@ -646,6 +745,42 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to At AMENTUM, our mission is to provide advanced engineering and technology solutions to the most important challenges in science, security, and sustainability. Our vision is to create a secure and vibrant future..
+        /// </summary>
+        public static string MissionVision {
+            get {
+                return ResourceManager.GetString("MissionVision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our Mission, Vision, and Values.
+        /// </summary>
+        public static string MissionVisionValues {
+            get {
+                return ResourceManager.GetString("MissionVisionValues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MudBlazor:.
+        /// </summary>
+        public static string MudBlazor {
+            get {
+                return ResourceManager.GetString("MudBlazor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .NET9:.
+        /// </summary>
+        public static string Net9 {
+            get {
+                return ResourceManager.GetString("Net9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New.
         /// </summary>
         public static string New {
@@ -669,6 +804,15 @@ namespace AraviPortal.Shared.Resources {
         public static string NewPassword {
             get {
                 return ResourceManager.GetString("NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next video.
+        /// </summary>
+        public static string NextVideo {
+            get {
+                return ResourceManager.GetString("NextVideo", resourceCulture);
             }
         }
         
@@ -723,6 +867,24 @@ namespace AraviPortal.Shared.Resources {
         public static string NotUserYet {
             get {
                 return ResourceManager.GetString("NotUserYet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meet our team.
+        /// </summary>
+        public static string OurTeam {
+            get {
+                return ResourceManager.GetString("OurTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Behind every successful project is a team of passionate professionals. In the IT department, we have experts in software development, business consulting, and user experience design, all dedicated to providing IT solutions that are at the forefront of new technologies. We believe in collaboration, continuous learning, and delivering results that exceed expectations..
+        /// </summary>
+        public static string OurTeamText {
+            get {
+                return ResourceManager.GetString("OurTeamText", resourceCulture);
             }
         }
         
@@ -790,11 +952,29 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PII and cybersecurity.
+        /// </summary>
+        public static string PIIandCybersecurity {
+            get {
+                return ResourceManager.GetString("PIIandCybersecurity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please wait....
         /// </summary>
         public static string PleaseWait {
             get {
                 return ResourceManager.GetString("PleaseWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previous video.
+        /// </summary>
+        public static string PreviousVideo {
+            get {
+                return ResourceManager.GetString("PreviousVideo", resourceCulture);
             }
         }
         
@@ -988,6 +1168,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start course.
+        /// </summary>
+        public static string StartCourse {
+            get {
+                return ResourceManager.GetString("StartCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Statement.
         /// </summary>
         public static string Statement {
@@ -1029,6 +1218,15 @@ namespace AraviPortal.Shared.Resources {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to us.
+        /// </summary>
+        public static string Us {
+            get {
+                return ResourceManager.GetString("Us", resourceCulture);
             }
         }
         
@@ -1083,6 +1281,115 @@ namespace AraviPortal.Shared.Resources {
         public static string ValueFalseTrue {
             get {
                 return ResourceManager.GetString("ValueFalseTrue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our core values are:.
+        /// </summary>
+        public static string ValueText {
+            get {
+                return ResourceManager.GetString("ValueText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We realize breakthroughs by continuously reinventing..
+        /// </summary>
+        public static string ValueText1 {
+            get {
+                return ResourceManager.GetString("ValueText1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We deliver on missions by meeting every commitment..
+        /// </summary>
+        public static string ValueText2 {
+            get {
+                return ResourceManager.GetString("ValueText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We take on challenges with courage..
+        /// </summary>
+        public static string ValueText3 {
+            get {
+                return ResourceManager.GetString("ValueText3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We embrace collaboration &amp; employee engagement..
+        /// </summary>
+        public static string ValueText4 {
+            get {
+                return ResourceManager.GetString("ValueText4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to the IT awareness course..
+        /// </summary>
+        public static string WelcomeCourse {
+            get {
+                return ResourceManager.GetString("WelcomeCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What makes us different? Cutting-edge technology..
+        /// </summary>
+        public static string WhatDifferent {
+            get {
+                return ResourceManager.GetString("WhatDifferent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What really sets us apart at AMENTUM is our focus on technological innovation and user experience.
+        ///We develop our solutions using the most modern and robust platforms:.
+        /// </summary>
+        public static string WhatDifferentText {
+            get {
+                return ResourceManager.GetString("WhatDifferentText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We leverage the latest version of the .NET platform to build secure, scalable, and high-performance applications..
+        /// </summary>
+        public static string WhatDifferentText1 {
+            get {
+                return ResourceManager.GetString("WhatDifferentText1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We offer interactive and fast web experiences, directly in the browser, with the power and reach of C# code..
+        /// </summary>
+        public static string WhatDifferentText2 {
+            get {
+                return ResourceManager.GetString("WhatDifferentText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We create modern, intuitive, and responsive user interfaces, ensuring that our applications are easy to use and visually appealing on any device..
+        /// </summary>
+        public static string WhatDifferentText3 {
+            get {
+                return ResourceManager.GetString("WhatDifferentText3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This technological combination allows us to deliver agile, efficient, and future-proof solutions, ensuring that your technology investment is long-lasting and effective..
+        /// </summary>
+        public static string WhatDifferentTextB {
+            get {
+                return ResourceManager.GetString("WhatDifferentTextB", resourceCulture);
             }
         }
         

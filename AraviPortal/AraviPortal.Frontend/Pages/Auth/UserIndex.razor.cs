@@ -91,4 +91,8 @@ public partial class UserIndex
         await LoadAsync();
         await table.ReloadServerData();
     }
+
+    private void DeleteUserAsync()
+    {
+    }
 }

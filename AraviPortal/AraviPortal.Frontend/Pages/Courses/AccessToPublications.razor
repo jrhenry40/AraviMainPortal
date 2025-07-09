@@ -2,38 +2,63 @@
 
 <MudLayout>
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.Medium" Class="mud-py-8">
-            <MudPaper Elevation="6" Class="pa-6 text-center rounded-lg">
-                <MudText Typo="Typo.h4" Color="Color.Primary" Class="mud-mb-4">IT Awareness Training</MudText>
-
-                <div class="mud-mb-4">
+        <MudContainer MaxWidth="MaxWidth.Large" Class="d-flex align-center justify-center mud-py-12">
+            <MudPaper Elevation="10" Class="pa-8 text-center rounded-xl mud-theme-surface" Style="max-width: 1000px; width: 100%;">
+                <MudText Typo="Typo.h3" Color="Color.Primary" Class="mud-mb-6 font-weight-bold">
+                    @Localizer["AccessPublications"]
+                </MudText>
+                <div class="mud-mb-8">
                     @if (!string.IsNullOrEmpty(VideoUrl))
                     {
-                        @* Añadir @ref="videoElement" para obtener una referencia al elemento video *@
-                        <video @ref="videoElement" controls autoplay muted style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-                            <source src="@VideoUrl" type="video/mp4">
-                            Tu navegador no soporta la etiqueta de video.
-                        </video>
+                        <div class="video-container">
+                            <video @ref="videoElement" controlsList="nodownload" @oncontextmenu:preventDefault autoplay muted
+                                   class="responsive-video rounded-lg elevation-6" controls>
+                                <source src="@VideoUrl" type="video/mp4">
+                                Tu navegador no soporta la etiqueta de video.
+                            </video>
+                        </div>
                     }
                     else
                     {
-                        <Loading />
+                        <div class="loading-container">
+                            <Loading />
+                        </div>
                     }
                 </div>
 
-                <MudGrid Justify="Justify.Center" Spacing="4" Class="mud-mt-6">
-                    <MudItem>
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" StartIcon="@Icons.Material.Filled.Home"
+                @if (showControls)
+                {
+                    <div class="custom-controls">
+                        <MudButton StartIcon="@(isPlaying? Icons.Material.Filled.PauseCircle : Icons.Material.Filled.PlayCircle)"
+                                   OnClick="TogglePlayPause"
+                                   Color="Color.Primary" Variant="Variant.Filled">
+                            @(isPlaying ? "Pausar" : "Reproducir")
+                        </MudButton>
+
+                        <MudSlider T="double" Min="0" Max="1" Step="0.1" Value="Volume" ValueChanged="OnVolumeChanged"
+                                   Class="flex-grow-1" Style="width: 200px; margin: 0 20px;" />
+
+                        <MudButton EndIcon="@Icons.Material.Filled.Fullscreen" OnClick="ToggleFullscreen"
+                                   Color="Color.Secondary" Variant="Variant.Outlined">
+                            Pantalla Completa
+                        </MudButton>
+                    </div>
+                }
+                
+
+                <MudGrid Justify="Justify.Center" Spacing="6" Class="mud-mt-10">
+                    <MudItem xs="12" sm="6" md="4">
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large"
+                                   StartIcon="@Icons.Material.Filled.ArrowBack" Class="mud-py-4 mud-px-8 rounded-pill"
                                    OnClick="GoHome">
-                            Regresar al video anterior
+                            @Localizer["PreviousVideo"]
                         </MudButton>
                     </MudItem>
-                    <MudItem>
-                        <MudButton Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Large" EndIcon="@Icons.Material.Filled.ArrowForward"
-                                   OnClick="GoToNextPage"
-                                   Disabled="@_isNextButtonDisabled">
-                            @* Aquí controlamos el estado del botón *@
-                            Siguiente Video
+                    <MudItem xs="12" sm="6" md="4">
+                        <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Size="Size.Large"
+                                   EndIcon="@Icons.Material.Filled.ArrowForward" Class="mud-py-4 mud-px-8 rounded-pill"
+                                   OnClick="GoToNextPage" Disabled="@_isNextButtonDisabled">
+                            @Localizer["NextVideo"]
                         </MudButton>
                     </MudItem>
                 </MudGrid>

@@ -2,6 +2,7 @@
 using AraviPortal.Backend.UnitsOfWork.Interfaces;
 using AraviPortal.Shared.DTOs;
 using AraviPortal.Shared.Entities;
+using AraviPortal.Shared.Enums;
 using AraviPortal.Shared.Responses;
 using Microsoft.AspNetCore.Identity;
 
@@ -47,4 +48,6 @@ public class UsersUnitOfWork : IUsersUnitOfWork
     public async Task<ActionResponse<IEnumerable<User>>> GetAsync(PaginationDTO pagination) => await _usersRepository.GetAsync(pagination);
 
     public async Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination) => await _usersRepository.GetTotalRecordsAsync(pagination);
+
+    public async Task<IdentityResult> UpdateUserByAdminAsync(User user, UserType newRole) => await _usersRepository.UpdateUserByAdminAsync(user, newRole);
 }
