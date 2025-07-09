@@ -1,68 +1,57 @@
-﻿window.videoInterop = {
-    // Stores the last valid (non-seeking) time
-    _supposedCurrentTime: 0,
-    _videoElement: null,
-    _dotNetHelper: null,
-    _videoEndedHandler: null,
-    _timeUpdateHandler: null,
-    _seekingHandler: null,
+﻿// wwwroot/js/videoInterop.js
 
-    initializeVideoEndedEvent: (videoElement, dotNetHelper) => {
-        if (videoElement) {
-            videoInterop._videoElement = videoElement;
-            videoInterop._dotNetHelper = dotNetHelper;
+// Función para reproducir el video
+window.playVideo = (videoElement) => {
+    if (videoElement) {
+        videoElement.play();
+    }
+};
 
-            // Save handlers to allow proper removal later
-            videoInterop._videoEndedHandler = function () {
-                dotNetHelper.invokeMethodAsync('VideoHasEnded');
-            };
-            videoInterop._timeUpdateHandler = function () {
-                // Only update supposedCurrentTime if not seeking
-                if (!videoElement.seeking) {
-                    videoInterop._supposedCurrentTime = videoElement.currentTime;
-                }
-            };
-            videoInterop._seekingHandler = function () {
-                // If the user tries to seek forward, revert to the last valid time
-                const delta = videoElement.currentTime - videoInterop._supposedCurrentTime;
-                // Allow a small delta to account for floating point inaccuracies
-                if (delta > 0.1) { // 0.1 seconds tolerance
-                    videoElement.currentTime = videoInterop._supposedCurrentTime;
-                }
-            };
+// Función para pausar el video
+window.pauseVideo = (videoElement) => {
+    if (videoElement) {
+        videoElement.pause();
+    }
+};
 
-            videoElement.addEventListener('ended', videoInterop._videoEndedHandler);
-            videoElement.addEventListener('timeupdate', videoInterop._timeUpdateHandler);
-            videoElement.addEventListener('seeking', videoInterop._seekingHandler);
+// Función para establecer el volumen
+window.setVideoVolume = (videoElement, volume) => {
+    if (videoElement) {
+        videoElement.volume = volume;
+    }
+};
+
+// Función para alternar la pantalla completa
+window.toggleFullscreen = (videoElement) => {
+    if (videoElement) {
+        if (videoElement.requestFullscreen) {
+            videoElement.requestFullscreen();
+        } else if (videoElement.mozRequestFullScreen) { // Firefox
+            videoElement.mozRequestFullScreen();
+        } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            videoElement.webkitRequestFullscreen();
+        } else if (videoElement.msRequestFullscreen) { // IE/Edge
+            videoElement.msRequestFullscreen();
         }
-    },
+    }
+};
 
-    disposeVideoEndedEvent: (videoId) => {
-        const videoElement = document.getElementById(videoId);
-        if (videoElement) {
-            // Remove all event listeners to prevent memory leaks
-            if (videoInterop._videoEndedHandler) {
-                videoElement.removeEventListener('ended', videoInterop._videoEndedHandler);
-            }
-            if (videoInterop._timeUpdateHandler) {
-                videoElement.removeEventListener('timeupdate', videoInterop._timeUpdateHandler);
-            }
-            if (videoInterop._seekingHandler) {
-                videoElement.removeEventListener('seeking', videoInterop._seekingHandler);
-            }
-
-            // Dispose DotNetObjectReference
-            if (videoInterop._dotNetHelper) {
-                videoInterop._dotNetHelper.dispose();
-            }
-
-            // Reset internal state
-            videoInterop._videoElement = null;
-            videoInterop._dotNetHelper = null;
-            videoInterop._videoEndedHandler = null;
-            videoInterop._timeUpdateHandler = null;
-            videoInterop._seekingHandler = null;
-            videoInterop._supposedCurrentTime = 0;
+window.setupVideoEndedListener = (videoElement, component) => {
+    if (videoElement) {
+        // Elimina cualquier 'escuchador' anterior para evitar duplicados
+        // (Esto es una buena práctica para prevenir errores)
+        if (videoElement.__blazorVideoEndedListener) {
+            videoElement.removeEventListener('ended', videoElement.__blazorVideoEndedListener);
         }
+
+        // Define el nuevo 'escuchador'
+        const listener = () => {
+            // Llama al método de C# 'OnVideoEnded' en el componente Blazor
+            component.invokeMethodAsync('OnVideoEnded');
+        };
+
+        // Agrega el 'escuchador' y guarda una referencia a él
+        videoElement.addEventListener('ended', listener);
+        videoElement.__blazorVideoEndedListener = listener;
     }
 };
