@@ -169,4 +169,9 @@ public class UsersRepository : IUsersRepository
 
         return await _userManager.UpdateAsync(user);
     }
+
+    public async Task<IdentityResult> DeleteUserAsync(User user)
+    {
+        return await _userManager.DeleteAsync(user);
+    }
 }

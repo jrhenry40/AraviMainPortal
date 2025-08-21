@@ -1,0 +1,102 @@
+﻿@page "/testcityselector"
+@using MudBlazor
+@using AraviPortal.Shared.Entities // Asegúrate de tener esta directiva
+@inject AraviPortal.Frontend.Repositories.IRepository Repository
+@inject MudBlazor.ISnackbar Snackbar
+
+<MudText Typo="Typo.h5">Test de MudAutocomplete de Ciudades</MudText>
+
+@if (loading)
+{
+    <p>Cargando ciudades...</p>
+}
+else
+{
+    <MudAutocomplete T="City"
+                     Label="Ciudad de Prueba"
+                     Placeholder="Selecciona una ciudad"
+                     SearchFunc="SearchCities"
+                     @bind-Value="selectedCity"
+                     ToStringFunc="@(e=> e==null?null : $"{e.Name}")">
+        <ItemTemplate Context="itemContext">
+            @itemContext.Name
+        </ItemTemplate>
+    </MudAutocomplete>
+
+    <MudText>Ciudad seleccionada: @(selectedCity?.Name ?? "Ninguna")</MudText>
+}
+
+@code {
+    private bool loading = true;
+    private List<City> cities = new List<City>();
+    private City selectedCity = new City();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine("OnInitializedAsync: Iniciando carga de ciudades.");
+        await LoadCitiesAsync();
+        loading = false;
+        // Asignar una ciudad predeterminada si existe alguna
+        if (cities.Any())
+        {
+            selectedCity = cities.First(); // Puedes probar con la primera o dejarla vacía
+        }
+        Console.WriteLine($"OnInitializedAsync: Ciudades cargadas: {cities.Count}. selectedCity: {selectedCity?.Name ?? "N/A"}");
+        StateHasChanged(); // Forzar renderizado después de cargar los datos
+    }
+
+    private async Task LoadCitiesAsync()
+    {
+        Console.WriteLine("LoadCitiesAsync: Llamando al repositorio para obtener ciudades.");
+        var responseHttp = await Repository.GetAsync<List<City>>("/api/cities/combo");
+        if (responseHttp.Error)
+        {
+            var message = await responseHttp.GetErrorMessageAsync();
+            Snackbar.Add($"Error cargando ciudades: {message}", Severity.Error);
+            cities = new List<City>();
+            Console.WriteLine($"LoadCitiesAsync: Error, cities es ahora una lista vacía. Mensaje: {message}");
+            return;
+        }
+        cities = responseHttp.Response ?? new List<City>();
+        Console.WriteLine($"LoadCitiesAsync: Ciudades recibidas: {cities.Count}");
+    }
+
+    private async Task<IEnumerable<City>> SearchCities(string searchText, CancellationToken cancellationToken)
+    {
+        Console.WriteLine($"SearchCities llamado con searchText: '{searchText}'");
+
+        // Simula un pequeño retraso, crucial para evitar problemas de carrera en algunos escenarios
+        await Task.Delay(5);
+
+        // Asegúrate de que 'cities' no sea null o esté vacío antes de filtrar
+        if (cities == null || !cities.Any())
+        {
+            Console.WriteLine("SearchCities: La lista 'cities' está vacía o nula. Intentando recargar por si acaso.");
+            await LoadCitiesAsync(); // Intenta recargar por si la lista estaba vacía por algún motivo
+            if (cities == null || !cities.Any())
+            {
+                Console.WriteLine("SearchCities: La lista 'cities' sigue vacía después de recargar. Devolviendo lista vacía.");
+                return Enumerable.Empty<City>();
+            }
+        }
+
+        if (string.IsNullOrWhiteSpace(searchText))
+        {
+            Console.WriteLine($"SearchCities: searchText está vacío. Devolviendo TODAS las {cities.Count} ciudades.");
+            return cities; // Si no hay texto de búsqueda, devuelve todas las ciudades cargadas
+        }
+
+        var filteredCities = cities
+            .Where(c => c.Name.Contains(searchText, StringComparison.InvariantCultureIgnoreCase))
+            .ToList();
+        Console.WriteLine($"SearchCities: Filtrando por '{searchText}'. Devolviendo {filteredCities.Count} ciudades.");
+        return filteredCities;
+    }
+
+    private void CityChanged(City city)
+    {
+        Console.WriteLine($"CityChanged: Ciudad seleccionada: {city?.Name ?? "N/A"} (ID: {city?.Id ?? 0})");
+        selectedCity = city;
+        StateHasChanged(); // Forzar re-renderizado
+    }
+}

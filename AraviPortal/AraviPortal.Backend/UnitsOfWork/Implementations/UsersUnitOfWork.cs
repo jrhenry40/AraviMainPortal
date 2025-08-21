@@ -50,4 +50,6 @@ public class UsersUnitOfWork : IUsersUnitOfWork
     public async Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination) => await _usersRepository.GetTotalRecordsAsync(pagination);
 
     public async Task<IdentityResult> UpdateUserByAdminAsync(User user, UserType newRole) => await _usersRepository.UpdateUserByAdminAsync(user, newRole);
+
+    public async Task<IdentityResult> DeleteUserAsync(User user) => await _usersRepository.DeleteUserAsync(user);
 }

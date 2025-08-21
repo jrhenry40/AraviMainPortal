@@ -19,4 +19,15 @@ public enum UserType
     Inventory_Custodians,
     Inventory_InventoryClerks,
     Inventory_ITMaintenanceTeam,
+    Course_Student_SIS_Admin,
+    Course_Student_SIS_Report,
+    Course_Student_SIS_CustomerServices,
+    Course_Student_SIS_Repairables,
+    Course_Student_SRAA_Admin,
+    Course_Student_SRAA_ConsultantUser,
+    Course_Student_SRAA_DataEntry,
+    Course_Student_Inventory_Admin,
+    Course_Student_Inventory_Custodians,
+    Course_Student_Inventory_InventoryClerks,
+    Course_Student_Inventory_ITMaintenanceTeam
 }

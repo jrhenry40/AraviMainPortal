@@ -41,4 +41,6 @@ public interface IUsersRepository
     Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
 
     Task<IdentityResult> UpdateUserByAdminAsync(User user, UserType newRole);
+
+    Task<IdentityResult> DeleteUserAsync(User user);
 }

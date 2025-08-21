@@ -136,6 +136,7 @@ public class AccountsController : ControllerBase
                 new(ClaimTypes.Role, user.UserType.ToString()),
                 new("FirstName", user.FirstName),
                 new("LastName", user.LastName),
+                new("FullName", user.FullName),
                 new("CityId", user.City.Id.ToString())
             };
 
@@ -205,8 +206,8 @@ public class AccountsController : ControllerBase
         }
     }
 
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Superadmin,Admin")] // Asegúrate de que solo los admins puedan usar esto
-    [HttpPut("UpdateUserByAdmin")] // Nuevo endpoint
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Superadmin,Admin")]
+    [HttpPut("UpdateUserByAdmin")]
     public async Task<IActionResult> UpdateUserByAdminAsync([FromBody] UserEditDTO model)
     {
         if (!ModelState.IsValid)
@@ -214,39 +215,28 @@ public class AccountsController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        var user = await _usersUnitOfWork.GetUserAsync(new Guid(model.Id)); // Obtener el usuario por ID
+        var user = await _usersUnitOfWork.GetUserAsync(new Guid(model.Id));
         if (user == null)
         {
-            return NotFound("ERR009"); // Usuario no encontrado
+            return NotFound("ERR009");
         }
 
-        // Opcional: Validar que el admin no se intente cambiar a sí mismo si hay restricciones
-        // if (user.Id == User.Identity!.Name && model.UserType.ToString() != user.UserType.ToString())
-        // {
-        //     return BadRequest("No puedes cambiar tu propio rol.");
-        // }
-
-        // Actualizar las propiedades del usuario desde el DTO
         user.FirstName = model.FirstName;
         user.LastName = model.LastName;
         user.PhoneNumber = model.PhoneNumber;
         user.CityId = model.CityId;
-        // El UserType se manejará en el repositorio al cambiar los roles
-
-        // Obtener la ciudad para la entidad User, similar a CreateUser
         var city = await _context.Cities.FindAsync(model.CityId);
         if (city == null)
         {
-            return BadRequest("ERR004"); // Ciudad no encontrada
+            return BadRequest("ERR004");
         }
         user.City = city;
 
-        // Llamar al nuevo método del UnitOfWork para actualizar el usuario y su rol
         var result = await _usersUnitOfWork.UpdateUserByAdminAsync(user, model.UserType);
 
         if (result.Succeeded)
         {
-            return NoContent(); // O Ok(BuildToken(user)) si quieres devolver el token actualizado
+            return NoContent();
         }
 
         return BadRequest(result.Errors.FirstOrDefault()!.Description);
@@ -357,5 +347,24 @@ public class AccountsController : ControllerBase
             return _mailHelper.SendMail(user.FullName, user.Email!, _configuration["Mail:SubjectRecoveryEs"]!, string.Format(_configuration["Mail:BodyRecoveryEs"]!, tokenLink), language);
         }
         return _mailHelper.SendMail(user.FullName, user.Email!, _configuration["Mail:SubjectRecoveryEn"]!, string.Format(_configuration["Mail:BodyRecoveryEn"]!, tokenLink), language);
+    }
+
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Superadmin,Admin")]
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteUserAsync(string id)
+    {
+        var user = await _usersUnitOfWork.GetUserAsync(new Guid(id));
+        if (user == null)
+        {
+            return NotFound("ERR009");
+        }
+
+        var result = await _usersUnitOfWork.DeleteUserAsync(user);
+        if (result.Succeeded)
+        {
+            return NoContent();
+        }
+
+        return BadRequest(result.Errors.FirstOrDefault()!.Description);
     }
 }

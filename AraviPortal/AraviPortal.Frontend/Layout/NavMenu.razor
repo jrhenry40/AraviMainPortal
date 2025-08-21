@@ -2,9 +2,72 @@
     <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Rounded.Home">@Localizer["Home"]</MudNavLink>
     <MudDivider />
 
+    <AuthorizeView Roles="User, Superadmin, Course_Student_SIS_Admin">
+        <Authorized>
+            <MudNavGroup Title="@Localizer["Courses"]" Icon="@Icons.Material.Filled.School" Expanded="false">
+                <MudNavLink Href="/ITCourse" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.LaptopChromebook">@Localizer["ITcourse"]</MudNavLink>
+            </MudNavGroup>
+        </Authorized>
+    </AuthorizeView>
+    <MudDivider />
+
+    <AuthorizeView>
+        <Authorized>
+            <MudNavGroup Title="@Localizer["Apps"]" Icon="@Icons.Material.Filled.Apps" Expanded="false">
+
+                <AuthorizeView Roles="Course_Student_SIS_Admin, Course_Student_SIS_Report, Course_Student_SIS_CustomerServices, Superadmin" Context="appContext">
+                    <Authorized>
+                        <MudNavLink Href="/sis" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.LaptopChromebook">@Localizer["SIS"]</MudNavLink>
+                    </Authorized>
+                </AuthorizeView>
+
+                <AuthorizeView Roles="Superadmin" Context="linkContext">
+                    <Authorized>
+                        <MudNavLink Href="/sraa" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.OilBarrel">@Localizer["SRAA"]</MudNavLink>
+                    </Authorized>
+                </AuthorizeView>
+
+                <AuthorizeView Roles="Superadmin" Context="linkContext">
+                    <Authorized>
+                        <MudNavLink Href="/invetories" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Inventory">@Localizer["Inventories"]</MudNavLink>
+                    </Authorized>
+                </AuthorizeView>
+
+            </MudNavGroup>
+        </Authorized>
+    </AuthorizeView>
+    <MudDivider />
+
+    <AuthorizeView>
+        <Authorized>
+            <MudNavGroup Title="@Localizer["PowerBi"]" Icon="@Icons.Custom.Brands.MicrosoftWindows" Expanded="false">
+
+                <AuthorizeView Roles="Superadmin" Context="appContext">
+                    <Authorized>
+                        <MudNavLink Href="/finance" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.CurrencyExchange">@Localizer["Finance"]</MudNavLink>
+                    </Authorized>
+                </AuthorizeView>
+
+                <AuthorizeView Roles="Superadmin, Course_Student_SIS_Admin" Context="linkContext">
+                    <Authorized>
+                        <MudNavLink Href="/it" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.DeveloperMode">@Localizer["IT"]</MudNavLink>
+                    </Authorized>
+                </AuthorizeView>
+
+                <AuthorizeView Roles="Superadmin" Context="linkContext">
+                    <Authorized>
+                        <MudNavLink Href="/training" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AddChart">@Localizer["Training"]</MudNavLink>
+                    </Authorized>
+                </AuthorizeView>
+
+            </MudNavGroup>
+        </Authorized>
+    </AuthorizeView>
+    <MudDivider />
+
     <AuthorizeView Roles="Superadmin">
         <Authorized>
-            <MudNavGroup Title="@Localizer["AdministratorMenu"]" Icon="@Icons.Material.Filled.AdminPanelSettings" Expanded="true">
+            <MudNavGroup Title="@Localizer["AdministratorMenu"]" Icon="@Icons.Material.Filled.AdminPanelSettings" Expanded="false">
                 <MudDivider />
                 <MudNavGroup Title="@Localizer["Evaluation"]" Icon="@Icons.Material.Filled.Assignment">
                     <MudNavLink Href="/categories" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Category">@Localizer["Categories"]</MudNavLink>
@@ -21,15 +84,9 @@
             </MudNavGroup>
         </Authorized>
     </AuthorizeView>
+    <MudDivider />
 
-    <MudDivider />
-    <AuthorizeView Roles="User, Superadmin">
-        <Authorized>
-            <MudNavGroup Title="@Localizer["ITcourse"]" Icon="@Icons.Material.Filled.School" Expanded="true">
-                <MudNavLink Href="/ITCourse" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.LaptopChromebook">@Localizer["ITCourse"]</MudNavLink>
-            </MudNavGroup>
-        </Authorized>
-    </AuthorizeView>
-    <MudDivider />
     <MudNavLink Href="/about" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Info">@Localizer["About"]</MudNavLink>
+    <MudDivider />
+
 </MudNavMenu>

@@ -46,15 +46,13 @@ else
                     <MudButton Variant="Variant.Filled"
                                Color="Color.Warning"
                                Href="@($"/users/editadmin/{context.Id}")">
-                        @* <--- CAMBIO AQUÍ *@
                         <MudIcon Icon="@Icons.Material.Filled.Edit" />
                     </MudButton>
                 </MudTooltip>
                 <MudTooltip Text="@Localizer["Delete"]">
                     <MudButton Variant="Variant.Filled"
                                Color="Color.Error"
-                               OnClick="@(() => DeleteUserAsync())">
-                        @* Suponiendo que tienes un método para eliminar *@
+                               OnClick="@(() => DeleteUserAsync(context))">
                         <MudIcon Icon="@Icons.Material.Filled.Delete" />
                     </MudButton>
                 </MudTooltip>

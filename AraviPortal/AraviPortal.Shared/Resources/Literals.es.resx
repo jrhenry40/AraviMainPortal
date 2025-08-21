@@ -565,4 +565,193 @@ Desarrollamos nuestras soluciones utilizando las plataformas más modernas y rob
   <data name="ERR009" xml:space="preserve">
     <value>El código de usuario no es válido.</value>
   </data>
+  <data name="ProgramInformationStorage" xml:space="preserve">
+    <value>Almacenamiento de información del programa.</value>
+  </data>
+  <data name="SharePointStorage" xml:space="preserve">
+    <value>SharePoint: Tu respaldo oficial</value>
+  </data>
+  <data name="ImportantNote" xml:space="preserve">
+    <value>Nota importante</value>
+  </data>
+  <data name="SIS" xml:space="preserve">
+    <value>S.I.S.</value>
+  </data>
+  <data name="Apps" xml:space="preserve">
+    <value>Aplicaciones</value>
+  </data>
+  <data name="SISName" xml:space="preserve">
+    <value>Software de integración de sistemas</value>
+  </data>
+  <data name="Uploaddaily" xml:space="preserve">
+    <value>Cargar archivos diarios</value>
+  </data>
+  <data name="Workflowupdate" xml:space="preserve">
+    <value>Actualización del flujo de trabajo</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reportes</value>
+  </data>
+  <data name="Uploadmonthly" xml:space="preserve">
+    <value>Cargar archivos mensuales</value>
+  </data>
+  <data name="MenuUploadData" xml:space="preserve">
+    <value>Menú cargar datos</value>
+  </data>
+  <data name="UploadUCSAMMS" xml:space="preserve">
+    <value>Cargar UCS AMMS</value>
+  </data>
+  <data name="UploadBacklog" xml:space="preserve">
+    <value>Cargar reporte Backlog</value>
+  </data>
+  <data name="UploadReceiving" xml:space="preserve">
+    <value>Cargar reporte Receiving</value>
+  </data>
+  <data name="UploadShipping" xml:space="preserve">
+    <value>Cargar reporte Shipping</value>
+  </data>
+  <data name="UploadSummary" xml:space="preserve">
+    <value>Cargar Summary AWB</value>
+  </data>
+  <data name="SelectFileExcel" xml:space="preserve">
+    <value>Seleccione el archivo para cargar.</value>
+  </data>
+  <data name="FileSelected" xml:space="preserve">
+    <value>Archivo seleccionado:</value>
+  </data>
+  <data name="UploadFile" xml:space="preserve">
+    <value>Cargar archivo</value>
+  </data>
+  <data name="FileNotSelected" xml:space="preserve">
+    <value>Archivo no seleccionado</value>
+  </data>
+  <data name="UploadingFile" xml:space="preserve">
+    <value>Cargando archivo, por favor espere...</value>
+  </data>
+  <data name="FileUploadSuccess" xml:space="preserve">
+    <value>¡Archivo cargado correctamente y datos guardados en la base de datos!</value>
+  </data>
+  <data name="ERR010" xml:space="preserve">
+    <value>No se ha seleccionado ningún archivo.</value>
+  </data>
+  <data name="FileUploadError" xml:space="preserve">
+    <value>Error al cargar el archivo: {0}</value>
+  </data>
+  <data name="FileUploadUnexpectedError" xml:space="preserve">
+    <value>Se ha producido un error inesperado.</value>
+  </data>
+  <data name="UploadWProgram" xml:space="preserve">
+    <value>Cargar el archivo W Program</value>
+  </data>
+  <data name="UploadWBuyer" xml:space="preserve">
+    <value>Cargar el archivo W Buyer</value>
+  </data>
+  <data name="UploadWSupplier" xml:space="preserve">
+    <value>Cargar el archivo W Supplier</value>
+  </data>
+  <data name="WProgram" xml:space="preserve">
+    <value>W program</value>
+  </data>
+  <data name="WBuyer" xml:space="preserve">
+    <value>W buyer</value>
+  </data>
+  <data name="WSupplier" xml:space="preserve">
+    <value>W supplier</value>
+  </data>
+  <data name="WrongFileFormat" xml:space="preserve">
+    <value>Formato de archivo incorrecto</value>
+  </data>
+  <data name="SRAA" xml:space="preserve">
+    <value>SRAA</value>
+  </data>
+  <data name="SRAAName" xml:space="preserve">
+    <value>Sistema de Registro de Análisis de Aceites</value>
+  </data>
+  <data name="Courses" xml:space="preserve">
+    <value>Cursos</value>
+  </data>
+  <data name="MenuSIS" xml:space="preserve">
+    <value>Menú SIS</value>
+  </data>
+  <data name="ERR011" xml:space="preserve">
+    <value>Formato de archivo no soportado. Por favor, suba un archivo .xlsx o .csv.</value>
+  </data>
+  <data name="ERR012" xml:space="preserve">
+    <value>No se ha proporcionado el nombre de la hoja de cálculo.</value>
+  </data>
+  <data name="DatabaseSaveError" xml:space="preserve">
+    <value>Error al guardar en la base de datos: {0}</value>
+  </data>
+  <data name="WorkSheetNotFound" xml:space="preserve">
+    <value>No se encontró la hoja de cálculo denominada {0}</value>
+  </data>
+  <data name="ERR013" xml:space="preserve">
+    <value>Error al convertir el archivo de Excel a CSV: {0}</value>
+  </data>
+  <data name="PowerBi" xml:space="preserve">
+    <value>Power BI</value>
+  </data>
+  <data name="IT" xml:space="preserve">
+    <value>TI</value>
+  </data>
+  <data name="Procurement" xml:space="preserve">
+    <value>Compras</value>
+  </data>
+  <data name="HumanResources" xml:space="preserve">
+    <value>Recursos humanos</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>Mantenimiento</value>
+  </data>
+  <data name="ProductionControl" xml:space="preserve">
+    <value>Control Producción</value>
+  </data>
+  <data name="QualityControl" xml:space="preserve">
+    <value>Control Calidad</value>
+  </data>
+  <data name="QualityAssurance" xml:space="preserve">
+    <value>Control de Aseguramiento</value>
+  </data>
+  <data name="Logistics" xml:space="preserve">
+    <value>Logística</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Finanzas</value>
+  </data>
+  <data name="Training" xml:space="preserve">
+    <value>Entrenamiento</value>
+  </data>
+  <data name="Inventories" xml:space="preserve">
+    <value>Inventarios</value>
+  </data>
+  <data name="ERR401" xml:space="preserve">
+    <value>Tienes que estar logueado para ejecutar esta operación.</value>
+  </data>
+  <data name="ERR403" xml:space="preserve">
+    <value>No tienes permisos para hacer esta operación.</value>
+  </data>
+  <data name="ERR404" xml:space="preserve">
+    <value>Recurso no encontrado.</value>
+  </data>
+  <data name="ERR_Unexpected" xml:space="preserve">
+    <value>Ha ocurrido un error inesperado.</value>
+  </data>
+  <data name="UploadedFile" xml:space="preserve">
+    <value>Archivo Subido</value>
+  </data>
+  <data name="DailyDataUpload" xml:space="preserve">
+    <value>El flujo de carga de datos diarios ha finalizado.</value>
+  </data>
+  <data name="MROBacklogFilesUpload" xml:space="preserve">
+    <value>El set de archivos de MRO Backlog ha sido procesado correctamente.</value>
+  </data>
+  <data name="AllFilesUpload" xml:space="preserve">
+    <value>¡Todos los archivos han sido cargados!</value>
+  </data>
+  <data name="LoadedCorrectly" xml:space="preserve">
+    <value>Cargado Correctamente</value>
+  </data>
+  <data name="Finish" xml:space="preserve">
+    <value>Finalizar</value>
+  </data>
 </root>

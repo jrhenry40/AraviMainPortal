@@ -11,10 +11,14 @@
                              Label="@Localizer["City"]"
                              Placeholder="@Localizer["SelectACity"]"
                              SearchFunc="SearchCity"
-                             Value="@selectedCity" 
-                             ValueChanged="@CityChanged" 
+                             Value="@selectedCity"
+                             ValueChanged="@CityChanged"
                              ToStringFunc="@(e=> e==null?null : $"{e.Name}")"
-                             Class="mb-4" />
+                             Class="mb-4">
+                <ItemTemplate Context="itemContext">
+                    @itemContext.Name
+                </ItemTemplate>
+            </MudAutocomplete>
 
             <MudSelect T="UserType"
                        Label="@Localizer["UserType"]"

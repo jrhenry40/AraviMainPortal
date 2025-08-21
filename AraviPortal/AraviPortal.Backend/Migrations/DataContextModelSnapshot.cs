@@ -17,7 +17,7 @@ namespace AraviPortal.Backend.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.6")
+                .HasAnnotation("ProductVersion", "9.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -178,6 +178,1356 @@ namespace AraviPortal.Backend.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("AraviPortal.Shared.Entities.SISReceiving", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("applicationcode_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("applicationcode_SISReceiving");
+
+                    b.Property<Guid?>("assetid_SISReceiving")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("assetid_SISReceiving");
+
+                    b.Property<string>("awbtrackno_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("awbtrackno_SISReceiving");
+
+                    b.Property<string>("cancelled_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("cancelled_SISReceiving");
+
+                    b.Property<string>("description_SISReceiving")
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)")
+                        .HasColumnName("description_SISReceiving");
+
+                    b.Property<string>("documentnumber_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("documentnumber_SISReceiving");
+
+                    b.Property<Guid?>("fkdolines_SISReceiving")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("fkdolines_SISReceiving");
+
+                    b.Property<Guid?>("fkpolines_SISReceiving")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("fkpolines_SISReceiving");
+
+                    b.Property<Guid?>("fkrepairlines_SISReceiving")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("fkrepairlines_SISReceiving");
+
+                    b.Property<Guid?>("id_SISReceiving")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("id_SISReceiving");
+
+                    b.Property<string>("invoiceno_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("invoiceno_SISReceiving");
+
+                    b.Property<string>("issuedocno_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("issuedocno_SISReceiving");
+
+                    b.Property<string>("jobcontrolno_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("jobcontrolno_SISReceiving");
+
+                    b.Property<string>("localstockno_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("localstockno_SISReceiving");
+
+                    b.Property<string>("location_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("location_SISReceiving");
+
+                    b.Property<string>("markfor_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("markfor_SISReceiving");
+
+                    b.Property<string>("mfgrpn_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("mfgrpn_SISReceiving");
+
+                    b.Property<string>("notes_SISReceiving")
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)")
+                        .HasColumnName("notes_SISReceiving");
+
+                    b.Property<string>("nsn_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("nsn_SISReceiving");
+
+                    b.Property<string>("partmodel_SISReceiving")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("partmodel_SISReceiving");
+
+                    b.Property<int?>("polinekey_SISReceiving")
+                        .HasColumnType("int")
+                        .HasColumnName("polinekey_SISReceiving");
+
+                    b.Property<string>("ponumber_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("ponumber_SISReceiving");
+
+                    b.Property<DateTime?>("processdate_SISReceiving")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("processdate_SISReceiving");
+
+                    b.Property<string>("receiptno_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("receiptno_SISReceiving");
+
+                    b.Property<decimal?>("receiptqty_SISReceiving")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("receiptqty_SISReceiving");
+
+                    b.Property<string>("receipttype_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("receipttype_SISReceiving");
+
+                    b.Property<string>("receiptunits_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("receiptunits_SISReceiving");
+
+                    b.Property<DateTime?>("reclinedate_SISReceiving")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("reclinedate_SISReceiving");
+
+                    b.Property<string>("serialnumber_SISReceiving")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("serialnumber_SISReceiving");
+
+                    b.Property<string>("shippedvia_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("shippedvia_SISReceiving");
+
+                    b.Property<string>("siteid_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("siteid_SISReceiving");
+
+                    b.Property<string>("tagnumber_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("tagnumber_SISReceiving");
+
+                    b.Property<string>("unitofissue_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("unitofissue_SISReceiving");
+
+                    b.Property<string>("vendorid_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("vendorid_SISReceiving");
+
+                    b.Property<string>("vendorname_SISReceiving")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("vendorname_SISReceiving");
+
+                    b.Property<string>("warehouselocation_SISReceiving")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("warehouselocation_SISReceiving");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SISReceiving");
+                });
+
+            modelBuilder.Entity("AraviPortal.Shared.Entities.SISShipping", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("applicationcode_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("applicationcode_SISShipping");
+
+                    b.Property<string>("awbtrackingno_SISShipping")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("awbtrackingno_SISShipping");
+
+                    b.Property<string>("backorderid_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("backorderid_SISShipping");
+
+                    b.Property<string>("bookingno_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("bookingno_SISShipping");
+
+                    b.Property<string>("claimno_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("claimno_SISShipping");
+
+                    b.Property<string>("containernum_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("containernum_SISShipping");
+
+                    b.Property<string>("countryofmanu_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("countryofmanu_SISShipping");
+
+                    b.Property<string>("description_SISShipping")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("description_SISShipping");
+
+                    b.Property<string>("documentnumber_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("documentnumber_SISShipping");
+
+                    b.Property<string>("donumber_SISShipping")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("donumber_SISShipping");
+
+                    b.Property<Guid?>("fkassetlcf_SISShipping")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("fkassetlcf_SISShipping");
+
+                    b.Property<Guid?>("fkpartslcf_SISShipping")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("fkpartslcf_SISShipping");
+
+                    b.Property<string>("harmonized_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("harmonized_SISShipping");
+
+                    b.Property<Guid?>("headerid_SISShipping")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("headerid_SISShipping");
+
+                    b.Property<string>("impharmonized_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("impharmonized_SISShipping");
+
+                    b.Property<string>("issuedocno_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("issuedocno_SISShipping");
+
+                    b.Property<string>("itar_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("itar_SISShipping");
+
+                    b.Property<string>("itarlicense_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("itarlicense_SISShipping");
+
+                    b.Property<string>("jobcontrolno_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("jobcontrolno_SISShipping");
+
+                    b.Property<Guid?>("lineid_SISShipping")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("lineid_SISShipping");
+
+                    b.Property<string>("linestatus_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("linestatus_SISShipping");
+
+                    b.Property<string>("loadnumber_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("loadnumber_SISShipping");
+
+                    b.Property<string>("localstockno_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("localstockno_SISShipping");
+
+                    b.Property<string>("mawb_SISShipping")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("mawb_SISShipping");
+
+                    b.Property<string>("mfgrcode_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("mfgrcode_SISShipping");
+
+                    b.Property<string>("mfgrpn_SISShipping")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("mfgrpn_SISShipping");
+
+                    b.Property<string>("nsn_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("nsn_SISShipping");
+
+                    b.Property<string>("ownerid_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("ownerid_SISShipping");
+
+                    b.Property<string>("partmodel_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("partmodel_SISShipping");
+
+                    b.Property<string>("priority_SISShipping")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("priority_SISShipping");
+
+                    b.Property<string>("sealnum_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("sealnum_SISShipping");
+
+                    b.Property<string>("serialnumber_SISShipping")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("serialnumber_SISShipping");
+
+                    b.Property<DateTime?>("shippeddatetime_SISShipping")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("shippeddatetime_SISShipping");
+
+                    b.Property<int?>("shippedqty_SISShipping")
+                        .HasColumnType("int")
+                        .HasColumnName("shippedqty_SISShipping");
+
+                    b.Property<string>("shippedunits_SISShipping")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("shippedunits_SISShipping");
+
+                    b.Property<string>("shippingprogress_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("shippingprogress_SISShipping");
+
+                    b.Property<string>("shiptositeid_Sisshipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("shiptositeid_SISShipping");
+
+                    b.Property<string>("siteid_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("siteid_SISShipping");
+
+                    b.Property<string>("tagnumber_SISShipping")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("tagnumber_SISShipping");
+
+                    b.Property<string>("tmstatus_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("tmstatus_SISShipping");
+
+                    b.Property<string>("tracingno_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("tracingno_SISShipping");
+
+                    b.Property<string>("trackurlfmt_SISShipping")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("trackurlfmt_SISShipping");
+
+                    b.Property<string>("type_SISShipping")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("type_SISShipping");
+
+                    b.Property<string>("unitofissue_SISShipping")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("unitofissue_SISShipping");
+
+                    b.Property<string>("usmleccn_SISShipping")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("usmleccn_SISShipping");
+
+                    b.Property<string>("warehousereceipt_SISShipping")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("warehousereceipt_SISShipping");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SISShipping");
+                });
+
+            modelBuilder.Entity("AraviPortal.Shared.Entities.SISSummaryAWB", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("altern_SISSummaryAWB")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("altern_SISSummaryAWB");
+
+                    b.Property<string>("awb_SISSummaryAWB")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("awb_SISSummaryAWB");
+
+                    b.Property<string>("cnd_SISSummaryAWB")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("cnd_SISSummaryAWB");
+
+                    b.Property<DateTime?>("datereceived_SISSummaryAWB")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("datereceived_SISSummaryAWB");
+
+                    b.Property<string>("description_SISSummaryAWB")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("description_SISSummaryAWB");
+
+                    b.Property<int?>("item_SISSummaryAWB")
+                        .HasColumnType("int")
+                        .HasColumnName("item_SISSummaryAWB");
+
+                    b.Property<string>("nsn_SISSummaryAWB")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("nsn_SISSummaryAWB");
+
+                    b.Property<string>("oh_SISSummaryAWB")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("oh_SISSummaryAWB");
+
+                    b.Property<string>("partnumber_SISSummaryAWB")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("partnumber_SISSummaryAWB");
+
+                    b.Property<string>("po_SISSummaryAWB")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("po_SISSummaryAWB");
+
+                    b.Property<string>("pr_SISSummaryAWB")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("pr_SISSummaryAWB");
+
+                    b.Property<string>("prioridad_SISSummaryAWB")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("prioridad_SISSummaryAWB");
+
+                    b.Property<int?>("qty_SISSummaryAWB")
+                        .HasColumnType("int")
+                        .HasColumnName("qty_SISSummaryAWB");
+
+                    b.Property<string>("remarks_SISSummaryAWB")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("remarks_SISSummaryAWB");
+
+                    b.Property<string>("requestedby_SISSummaryAWB")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("requestedby_SISSummaryAWB");
+
+                    b.Property<string>("sap_SISSummaryAWB")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("sap_SISSummaryAWB");
+
+                    b.Property<string>("sn_SISSummaryAWB")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("sn_SISSummaryAWB");
+
+                    b.Property<decimal?>("subtotalusd_SISSummaryAWB")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("subtotalusd_SISSummaryAWB");
+
+                    b.Property<decimal?>("totalcop_SISSummaryAWB")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("totalcop_SISSummaryAWB");
+
+                    b.Property<string>("ubic_SISSummaryAWB")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("ubic_SISSummaryAWB");
+
+                    b.Property<string>("unit_SISSummaryAWB")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("unit_SISSummaryAWB");
+
+                    b.Property<decimal?>("unitcop_SISSummaryAWB")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("unitcop_SISSummaryAWB");
+
+                    b.Property<decimal?>("unitprice_SISSummaryAWB")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("unitprice_SISSummaryAWB");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SISSummaryAWB");
+                });
+
+            modelBuilder.Entity("AraviPortal.Shared.Entities.SISUcsAmms", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("alternatepn_SISUcsAmms")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("alternatepn_SISUcsAmms");
+
+                    b.Property<string>("appremarks_SISUcsAmms")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("appremarks_SISUcsAmms");
+
+                    b.Property<string>("awb_SISUcsAmms")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)")
+                        .HasColumnName("awb_SISUcsAmms");
+
+                    b.Property<string>("budgete_SISUcsAmms")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("budgete_SISUcsAmms");
+
+                    b.Property<string>("buyer_SISUcsAmms")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)")
+                        .HasColumnName("buyer_SISUcsAmms");
+
+                    b.Property<string>("company_SISUcsAmms")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("company_SISUcsAmms");
+
+                    b.Property<DateTime?>("createdinmro_SISUcsAmms")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("createdinmro_SISUcsAmms");
+
+                    b.Property<DateTime?>("dateexptovendor_SISUcsAmms")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("dateexptovendor_SISUcsAmms");
+
+                    b.Property<DateTime?>("datercvdapp_SISUcsAmms")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("datercvdapp_SISUcsAmms");
+
+                    b.Property<DateTime?>("datesentapp_SISUcsAmms")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("datesentapp_SISUcsAmms");
+
+                    b.Property<string>("description_SISUcsAmms")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("description_SISUcsAmms");
+
+                    b.Property<int?>("earecinffinbound_SISUcsAmms")
+                        .HasColumnType("int")
+                        .HasColumnName("earecinffinbound_SISUcsAmms");
+
+                    b.Property<DateTime?>("edd_SISUcsAmms")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("edd_SISUcsAmms");
+
+                    b.Property<string>("enduse_SISUcsAmms")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)")
+                        .HasColumnName("enduse_SISUcsAmms");
+
+                    b.Property<DateTime?>("estdatedeparturet4_SISUcsAmms")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("estdatedeparturet4_SISUcsAmms");
+
+                    b.Property<decimal?>("extendcost_SISUcsAmms")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("extendcost_SISUcsAmms");
+
+                    b.Property<string>("lasteditedby_SISUcsAmms")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("lasteditedby_SISUcsAmms");
+
+                    b.Property<string>("logremarks_SISUcsAmms")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("logremarks_SISUcsAmms");
+
+                    b.Property<string>("name_SISUcsAmms")
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)")
+                        .HasColumnName("name_SISUcsAmms");
+
+                    b.Property<string>("orderstatus_SISUcsAmms")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("orderstatus_SISUcsAmms");
+
+                    b.Property<decimal?>("partinvcost_SISUcsAmms")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("partinvcost_SISUcsAmms");
+
+                    b.Property<string>("partnumber_SISUcsAmms")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("partnumber_SISUcsAmms");
+
+                    b.Property<DateTime?>("podate_SISUcsAmms")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("podate_SISUcsAmms");
+
+                    b.Property<string>("ponumber_SISUcsAmms")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("ponumber_SISUcsAmms");
+
+                    b.Property<string>("priority_SISUcsAmms")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("priority_SISUcsAmms");
+
+                    b.Property<string>("purchasecondition_SISUcsAmms")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("purchasecondition_SISUcsAmms");
+
+                    b.Property<string>("purchaseunit_SISUcsAmms")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("purchaseunit_SISUcsAmms");
+
+                    b.Property<decimal?>("pureqqty_SISUcsAmms")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("pureqqty_SISUcsAmms");
+
+                    b.Property<DateTime?>("receiveddateff_SISUcsAmms")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("receiveddateff_SISUcsAmms");
+
+                    b.Property<string>("repremarks_SISUcsAmms")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("repremarks_SISUcsAmms");
+
+                    b.Property<string>("requestedby_SISUcsAmms")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("requestedby_SISUcsAmms");
+
+                    b.Property<DateTime?>("requireddate_SISUcsAmms")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("requireddate_SISUcsAmms");
+
+                    b.Property<string>("requisition_SISUcsAmms")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("requisition_SISUcsAmms");
+
+                    b.Property<DateTime?>("requisitiondate_SISUcsAmms")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("requisitiondate_SISUcsAmms");
+
+                    b.Property<string>("site_SISUcsAmms")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("site_SISUcsAmms");
+
+                    b.Property<string>("sn_SISUcsAmms")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("sn_SISUcsAmms");
+
+                    b.Property<string>("type_SISUcsAmms")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("type_SISUcsAmms");
+
+                    b.Property<string>("vendorcode_SISUcsAmms")
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)")
+                        .HasColumnName("vendorcode_SISUcsAmms");
+
+                    b.Property<string>("vendorname_SISUcsAmms")
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)")
+                        .HasColumnName("vendorname_SISUcsAmms");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SISUcsAmms");
+                });
+
+            modelBuilder.Entity("AraviPortal.Shared.Entities.SISWBuyer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("aog_SISWBuyer")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("aog_SISWBuyer");
+
+                    b.Property<DateTime?>("approveddate_SISWBuyer")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("approveddate_SISWBuyer");
+
+                    b.Property<string>("bostatus_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("bostatus_SISWBuyer");
+
+                    b.Property<string>("buyer_SISWBuyer")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("buyer_SISWBuyer");
+
+                    b.Property<string>("category_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("category_SISWBuyer");
+
+                    b.Property<string>("cpacct_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("cpacct_SISWBuyer");
+
+                    b.Property<int?>("daysapproved_SISWBuyer")
+                        .HasColumnType("int")
+                        .HasColumnName("daysapproved_SISWBuyer");
+
+                    b.Property<string>("description_SISWBuyer")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("description_SISWBuyer");
+
+                    b.Property<string>("dodn_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("dodn_SISWBuyer");
+
+                    b.Property<decimal?>("dueqty_SISWBuyer")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("dueqty_SISWBuyer");
+
+                    b.Property<DateTime?>("edd_SISWBuyer")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("edd_SISWBuyer");
+
+                    b.Property<decimal?>("estimatedtotalpricedue_SISWBuyer")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("estimatedtotalpricedue_SISWBuyer");
+
+                    b.Property<decimal?>("estimatedunitprice_SISWBuyer")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("estimatedunitprice_SISWBuyer");
+
+                    b.Property<string>("jcn_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("jcn_SISWBuyer");
+
+                    b.Property<string>("maintcontrolno_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("maintcontrolno_SISWBuyer");
+
+                    b.Property<string>("markfor_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("markfor_SISWBuyer");
+
+                    b.Property<string>("niin_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("niin_SISWBuyer");
+
+                    b.Property<string>("niinuom_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("niinuom_SISWBuyer");
+
+                    b.Property<string>("notes_SISWBuyer")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
+                        .HasColumnName("notes_SISWBuyer");
+
+                    b.Property<string>("obligated_SISWBuyer")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("obligated_SISWBuyer");
+
+                    b.Property<DateTime?>("orddate_SISWBuyer")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("orddate_SISWBuyer");
+
+                    b.Property<decimal?>("ordqty_SISWBuyer")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("ordqty_SISWBuyer");
+
+                    b.Property<string>("orgid_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("orgid_SISWBuyer");
+
+                    b.Property<string>("partnumber_SISWBuyer")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("partnumber_SISWBuyer");
+
+                    b.Property<decimal?>("percent_SISWBuyer")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("percent_SISWBuyer");
+
+                    b.Property<int?>("polinenumber_SISWBuyer")
+                        .HasColumnType("int")
+                        .HasColumnName("polinenumber_SISWBuyer");
+
+                    b.Property<string>("polinestatus_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("polinestatus_SISWBuyer");
+
+                    b.Property<string>("ponumber_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("ponumber_SISWBuyer");
+
+                    b.Property<string>("potype_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("potype_SISWBuyer");
+
+                    b.Property<string>("pouom_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("pouom_SISWBuyer");
+
+                    b.Property<string>("pricetype_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("pricetype_SISWBuyer");
+
+                    b.Property<string>("priority_SISWBuyer")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("priority_SISWBuyer");
+
+                    b.Property<string>("projectid_SISWBuyer")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("projectid_SISWBuyer");
+
+                    b.Property<DateTime?>("quoteduedateutc_SISWBuyer")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("quoteduedateutc_SISWBuyer");
+
+                    b.Property<DateTime?>("rdd_SISWBuyer")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("rdd_SISWBuyer");
+
+                    b.Property<string>("reqgroupno_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("reqgroupno_SISWBuyer");
+
+                    b.Property<string>("requestedby_SISWBuyer")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("requestedby_SISWBuyer");
+
+                    b.Property<string>("requesttype_SISWBuyer")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("requesttype_SISWBuyer");
+
+                    b.Property<string>("rvsc_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("rvsc_SISWBuyer");
+
+                    b.Property<string>("serialnumber_SISWBuyer")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("serialnumber_SISWBuyer");
+
+                    b.Property<string>("shippingno_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("shippingno_SISWBuyer");
+
+                    b.Property<string>("siteawb_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("siteawb_SISWBuyer");
+
+                    b.Property<string>("siteid_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("siteid_SISWBuyer");
+
+                    b.Property<DateTime?>("siteshippeddate_SISWBuyer")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("siteshippeddate_SISWBuyer");
+
+                    b.Property<string>("source_SISWBuyer")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("source_SISWBuyer");
+
+                    b.Property<string>("vendorid_SISWBuyer")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("vendorid_SISWBuyer");
+
+                    b.Property<string>("vendorname_SISWBuyer")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("vendorname_SISWBuyer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SISWBuyer");
+                });
+
+            modelBuilder.Entity("AraviPortal.Shared.Entities.SISWProgram", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("aog_SISWProgram")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("aog_SISWProgram");
+
+                    b.Property<string>("bostatus_SISWProgram")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("bostatus_SISWProgram");
+
+                    b.Property<string>("category_SISWProgram")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("category_SISWProgram");
+
+                    b.Property<string>("cpacct_SISWProgram")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("cpacct_SISWProgram");
+
+                    b.Property<int?>("daysaging_SISWProgram")
+                        .HasColumnType("int")
+                        .HasColumnName("daysaging_SISWProgram");
+
+                    b.Property<string>("description_SISWProgram")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("description_SISWProgram");
+
+                    b.Property<string>("dodn_SISWProgram")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("dodn_SISWProgram");
+
+                    b.Property<decimal?>("estunitprice_SISWProgram")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("estunitprice_SISWProgram");
+
+                    b.Property<string>("jcn_SISWProgram")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("jcn_SISWProgram");
+
+                    b.Property<decimal?>("lineprice_SISWProgram")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("lineprice_SISWProgram");
+
+                    b.Property<string>("maintcontrolno_SISWProgram")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("maintcontrolno_SISWProgram");
+
+                    b.Property<string>("markfor_SISWProgram")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("markfor_SISWProgram");
+
+                    b.Property<int?>("ordQty_SISWProgram")
+                        .HasColumnType("int")
+                        .HasColumnName("ordQty_SISWProgram");
+
+                    b.Property<string>("orgid_SISWProgram")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("orgid_SISWProgram");
+
+                    b.Property<string>("partnumber_SISWProgram")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("partnumber_SISWProgram");
+
+                    b.Property<decimal?>("percent_SISWProgram")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("percent_SISWProgram");
+
+                    b.Property<string>("ponumber_SISWProgram")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("ponumber_SISWProgram");
+
+                    b.Property<string>("priority_SISWProgram")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("priority_SISWProgram");
+
+                    b.Property<string>("projectid_SISWProgram")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("projectid_SISWProgram");
+
+                    b.Property<DateTime?>("rejecteddate_SISWProgram")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("rejecteddate_SISWProgram");
+
+                    b.Property<string>("rejectnotes_SISWProgram")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("rejectnotes_SISWProgram");
+
+                    b.Property<string>("requestedby_SISWProgram")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("requestedby_SISWProgram");
+
+                    b.Property<string>("shippingno_SISWProgram")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("shippingno_SISWProgram");
+
+                    b.Property<string>("siteid_SISWProgram")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("siteid_SISWProgram");
+
+                    b.Property<string>("source_SISWProgram")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("source_SISWProgram");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SISWProgram");
+                });
+
+            modelBuilder.Entity("AraviPortal.Shared.Entities.SISWSupplier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("aog_SISWSupplier")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("aog_SISWSupplier");
+
+                    b.Property<int?>("backlog_SISWSupplier")
+                        .HasColumnType("int")
+                        .HasColumnName("backlog_SISWSupplier");
+
+                    b.Property<string>("bostatus_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("bostatus_SISWSupplier");
+
+                    b.Property<string>("buyer_SISWSupplier")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("buyer_SISWSupplier");
+
+                    b.Property<string>("category_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("category_SISWSupplier");
+
+                    b.Property<string>("cpacct_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("cpacct_SISWSupplier");
+
+                    b.Property<int?>("dayslate_SISWSupplier")
+                        .HasColumnType("int")
+                        .HasColumnName("dayslate_SISWSupplier");
+
+                    b.Property<string>("description_SISWSupplier")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("description_SISWSupplier");
+
+                    b.Property<string>("dodn_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("dodn_SISWSupplier");
+
+                    b.Property<decimal?>("dueqty_SISWSupplier")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("dueqty_SISWSupplier");
+
+                    b.Property<DateTime?>("edd_SISWSupplier")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("edd_SISWSupplier");
+
+                    b.Property<decimal?>("estimatedtotalpricedue_SISWSupplier")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("estimatedtotalpricedue_SISWSupplier");
+
+                    b.Property<decimal?>("estimatedunitprice_SISWSupplier")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("estimatedunitprice_SISWSupplier");
+
+                    b.Property<string>("expeditornotes_SISWSupplier")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
+                        .HasColumnName("expeditornotes_SISWSupplier");
+
+                    b.Property<string>("jcn_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("jcn_SISWSupplier");
+
+                    b.Property<string>("maintcontrolno_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("maintcontrolno_SISWSupplier");
+
+                    b.Property<string>("markfor_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("markfor_SISWSupplier");
+
+                    b.Property<string>("niin_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("niin_SISWSupplier");
+
+                    b.Property<string>("niinuom_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("niinuom_SISWSupplier");
+
+                    b.Property<string>("notes_SISWSupplier")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
+                        .HasColumnName("notes_SISWSupplier");
+
+                    b.Property<DateTime?>("orddate_SISWSupplier")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("orddate_SISWSupplier");
+
+                    b.Property<decimal?>("ordqty_SISWSupplier")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("ordqty_SISWSupplier");
+
+                    b.Property<string>("orgid_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("orgid_SISWSupplier");
+
+                    b.Property<string>("partnumber_SISWSupplier")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("partnumber_SISWSupplier");
+
+                    b.Property<decimal?>("percent_SISWSupplier")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("percent_SISWSupplier");
+
+                    b.Property<int?>("polinenumber_SISWSupplier")
+                        .HasColumnType("int")
+                        .HasColumnName("polinenumber_SISWSupplier");
+
+                    b.Property<string>("polinestatus_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("polinestatus_SISWSupplier");
+
+                    b.Property<string>("ponumber_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("ponumber_SISWSupplier");
+
+                    b.Property<string>("potype_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("potype_SISWSupplier");
+
+                    b.Property<string>("pouom_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("pouom_SISWSupplier");
+
+                    b.Property<string>("pricetype_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("pricetype_SISWSupplier");
+
+                    b.Property<string>("priority_SISWSupplier")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("priority_SISWSupplier");
+
+                    b.Property<string>("projectid_SISWSupplier")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("projectid_SISWSupplier");
+
+                    b.Property<DateTime?>("rdd_SISWSupplier")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("rdd_SISWSupplier");
+
+                    b.Property<string>("requestedby_SISWSupplier")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("requestedby_SISWSupplier");
+
+                    b.Property<string>("requesttype_SISWSupplier")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("requesttype_SISWSupplier");
+
+                    b.Property<string>("rod_SISWSupplier")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("rod_SISWSupplier");
+
+                    b.Property<string>("rvsc_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("rvsc_SISWSupplier");
+
+                    b.Property<string>("serialnumber_SISWSupplier")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("serialnumber_SISWSupplier");
+
+                    b.Property<string>("shippingno_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("shippingno_SISWSupplier");
+
+                    b.Property<string>("siteawb_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("siteawb_SISWSupplier");
+
+                    b.Property<string>("siteid_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("siteid_SISWSupplier");
+
+                    b.Property<DateTime?>("siteshippeddate_SISWSupplier")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("siteshippeddate_SISWSupplier");
+
+                    b.Property<string>("source_SISWSupplier")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("source_SISWSupplier");
+
+                    b.Property<string>("supplierawb_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("supplierawb_SISWSupplier");
+
+                    b.Property<DateTime?>("suppliershippeddate_SISWSupplier")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("suppliershippeddate_SISWSupplier");
+
+                    b.Property<int?>("ttdays_SISWSupplier")
+                        .HasColumnType("int")
+                        .HasColumnName("ttdays_SISWSupplier");
+
+                    b.Property<int?>("tthours_SISWSupplier")
+                        .HasColumnType("int")
+                        .HasColumnName("tthours_SISWSupplier");
+
+                    b.Property<string>("vendorid_SISWSupplier")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("vendorid_SISWSupplier");
+
+                    b.Property<string>("vendorname_SISWSupplier")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("vendorname_SISWSupplier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SISWSupplier");
                 });
 
             modelBuilder.Entity("AraviPortal.Shared.Entities.User", b =>
@@ -452,7 +1802,7 @@ namespace AraviPortal.Backend.Migrations
                     b.HasOne("AraviPortal.Shared.Entities.City", "City")
                         .WithMany("Users")
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("City");
@@ -463,7 +1813,7 @@ namespace AraviPortal.Backend.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -472,7 +1822,7 @@ namespace AraviPortal.Backend.Migrations
                     b.HasOne("AraviPortal.Shared.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -481,7 +1831,7 @@ namespace AraviPortal.Backend.Migrations
                     b.HasOne("AraviPortal.Shared.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -490,13 +1840,13 @@ namespace AraviPortal.Backend.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("AraviPortal.Shared.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -505,7 +1855,7 @@ namespace AraviPortal.Backend.Migrations
                     b.HasOne("AraviPortal.Shared.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 

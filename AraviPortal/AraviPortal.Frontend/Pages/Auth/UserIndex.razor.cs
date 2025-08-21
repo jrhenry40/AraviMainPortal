@@ -1,10 +1,12 @@
 using AraviPortal.Frontend.Repositories;
+using AraviPortal.Frontend.Shared;
 using AraviPortal.Shared.Entities;
 using AraviPortal.Shared.Resources;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using MudBlazor;
+using System.Net;
 
 namespace AraviPortal.Frontend.Pages.Auth;
 
@@ -14,7 +16,7 @@ public partial class UserIndex
     public List<User>? Users { get; set; }
 
     private MudTable<User> table = new();
-    private readonly int[] pageSizeOptions = { 5, 10, 25, 50, int.MaxValue };
+    private readonly int[] pageSizeOptions = { 10, 25, 50, int.MaxValue };
     private int totalRecords = 0;
     private bool loading;
     private string baseUrl = "api/accounts";
@@ -22,7 +24,9 @@ public partial class UserIndex
 
     [Inject] private IRepository Repository { get; set; } = null!;
     [Inject] private ISnackbar Snackbar { get; set; } = null!;
+    [Inject] private IDialogService DialogService { get; set; } = null!;
     [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
+    [Inject] private NavigationManager NavigationManager { get; set; } = null!;
 
     [Parameter, SupplyParameterFromQuery] public string Filter { get; set; } = string.Empty;
 
@@ -33,10 +37,10 @@ public partial class UserIndex
 
     private async Task LoadAsync()
     {
-        await LoadTotalRecords();
+        await LoadTotalRecordsAsync();
     }
 
-    private async Task<bool> LoadTotalRecords()
+    private async Task<bool> LoadTotalRecordsAsync()
     {
         loading = true;
         var url = $"{baseUrl}/totalRecordsPaginated";
@@ -92,7 +96,42 @@ public partial class UserIndex
         await table.ReloadServerData();
     }
 
-    private void DeleteUserAsync()
+    private async Task DeleteUserAsync(User user) // Cambia el parámetro para recibir el objeto User
     {
+        var parameters = new DialogParameters
+        {
+            { "Message", string.Format(Localizer["DeleteConfirm"], Localizer["User"], $"{user.FirstName} {user.LastName}") } // Usa los literales y el nombre completo del usuario
+        };
+        var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall, CloseOnEscapeKey = true };
+        var dialog = DialogService.Show<ConfirmDialog>(Localizer["Confirmation"], parameters, options);
+        var result = await dialog.Result;
+
+        if (result!.Canceled)
+        {
+            return;
+        }
+
+        loading = true;
+        var responseHttp = await Repository.DeleteAsync($"{baseUrl}/{user.Id}"); // Usa user.Id que es string
+        loading = false;
+
+        if (responseHttp.Error)
+        {
+            if (responseHttp.HttpResponseMessage?.StatusCode == HttpStatusCode.NotFound) // Usa HttpResponseMessage?.StatusCode
+            {
+                NavigationManager.NavigateTo("/users"); // Redirige a la página de usuarios
+            }
+            else
+            {
+                var message = await responseHttp.GetErrorMessageAsync();
+                Snackbar.Add(Localizer[message!], Severity.Error);
+            }
+        }
+        else
+        {
+            Snackbar.Add(Localizer["RecordDeletedOk"], Severity.Success); // Reutiliza este literal si ya lo tienes
+            await LoadTotalRecordsAsync(); // Si usas paginación o conteo total
+            await table.ReloadServerData(); // Recarga la tabla de usuarios
+        }
     }
 }

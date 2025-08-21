@@ -2,24 +2,46 @@ using AraviPortal.Backend.Data;
 using AraviPortal.Backend.Helpers;
 using AraviPortal.Backend.Repositories.Implementations;
 using AraviPortal.Backend.Repositories.Interfaces;
+using AraviPortal.Backend.Swagger;
 using AraviPortal.Backend.UnitsOfWork.Implementations;
 using AraviPortal.Backend.UnitsOfWork.Interfaces;
 using AraviPortal.Shared.Entities;
+using AraviPortal.Shared.Resources;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using OfficeOpenXml;
+using System.Globalization;
 using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
-builder.Services.AddEndpointsApiExplorer(); // Necesario para que Swagger pueda explorar tus endpoints
+var defaultCulture = new CultureInfo("en-US");
+CultureInfo.DefaultThreadCurrentCulture = defaultCulture;
+CultureInfo.DefaultThreadCurrentUICulture = defaultCulture;
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder => builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
+builder.Services.AddControllers()
+    .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Orders Backend", Version = "v1" });
+    c.OperationFilter<SwaggerFileOperationFilter>();
+    c.MapType<DateOnly>(() => new OpenApiSchema { Type = "string", Format = "date" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = @"JWT Authorization header using the Bearer scheme. <br /> <br />
@@ -28,7 +50,8 @@ builder.Services.AddSwaggerGen(c =>
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
+        Scheme = "Bearer",
+        BearerFormat = "JWT"
     });
     c.AddSecurityRequirement(new OpenApiSecurityRequirement()
       {
@@ -47,12 +70,11 @@ builder.Services.AddSwaggerGen(c =>
             new List<string>()
           }
         });
-}); // Agrega los servicios de generación de Swagger
+});
 
-builder.Services.AddControllers()
-    .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=LocalConnection").EnableSensitiveDataLogging());
+//builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=AraviConnection").EnableSensitiveDataLogging());
 
-builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=AraviConnection"));
 builder.Services.AddTransient<SeedDb>();
 
 builder.Services.AddScoped(typeof(IGenericUnitOfWork<>), typeof(GenericUnitOfWork<>));
@@ -66,6 +88,9 @@ builder.Services.AddScoped<IHangarsUnitOfWork, HangarsUnitOfWork>();
 
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<IUsersUnitOfWork, UsersUnitOfWork>();
+
+builder.Services.AddScoped<IFileConversionService, FileConversionService>();
+builder.Services.AddScoped<IFileConversionServiceUnitOfWork, FileConversionServiceUnitOfWork>();
 
 builder.Services.AddIdentity<User, IdentityRole>(x =>
 {
@@ -97,7 +122,22 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddScoped<IMailHelper, MailHelper>();
 
+ExcelPackage.License.SetNonCommercialOrganization("AMENTUM");
+
+builder.Services.AddLocalization();
+builder.Services.AddSingleton<IStringLocalizerFactory, ResourceManagerStringLocalizerFactory>();
+builder.Services.AddTransient<IStringLocalizer<Literals>, StringLocalizer<Literals>>();
+
 var app = builder.Build();
+
+var supportedCultures = new[] { "en-US", "es-CO" };
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supportedCultures[0])
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
+
 SeedData(app);
 
 void SeedData(WebApplication app)
@@ -110,19 +150,14 @@ void SeedData(WebApplication app)
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
-    app.UseSwagger(); // Habilita el middleware de generación de documentos Swagger JSON
-    app.UseSwaggerUI(); // Habilita el middleware de Swagger UI (la interfaz web)
+    app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-app.UseCors(x => x
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .SetIsOriginAllowed(origin => true)
-    .AllowCredentials());
-
+app.UseCors("AllowAll");
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-
 app.Run();

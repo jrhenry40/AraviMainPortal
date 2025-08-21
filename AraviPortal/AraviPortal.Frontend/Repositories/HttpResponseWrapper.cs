@@ -23,6 +23,7 @@ public class HttpResponseWrapper<T>
         }
 
         var statusCode = HttpResponseMessage.StatusCode;
+
         if (statusCode == HttpStatusCode.NotFound)
         {
             return "Recurso no encontrado.";

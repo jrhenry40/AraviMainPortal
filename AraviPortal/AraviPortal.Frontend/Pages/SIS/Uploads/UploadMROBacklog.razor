@@ -1,0 +1,104 @@
+﻿@page "/UploadMROBacklog"
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="my-8">
+    <MudText Typo="Typo.h4" GutterBottom="true" Align="Align.Center">
+        <MudIcon Icon="@Icons.Material.Filled.InstallDesktop" Class="mr-2" /> @Localizer["UploadBacklog"]
+    </MudText>
+
+    <MudPaper Elevation="3" Class="pa-4">
+
+        @if (!allFilesUploaded)
+        {
+            <MudStack Spacing="4">
+                
+                <MudPaper Elevation="0" Class="pa-4 rounded-lg" Style="border: 1px solid var(--mud-palette-lines-default)">
+                    <MudText Typo="Typo.h6" GutterBottom="true">@Localizer["UploadWProgram"]</MudText>
+                    @if (!isWProgramUploaded)
+                    {
+                        <label for="wprogram-file">
+                            <InputFile id="wprogram-file" OnChange="HandleWProgramFileSelected" hidden />
+                            <MudButton HtmlTag="span" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.AttachFile">
+                                @Localizer["SelectFile"]
+                            </MudButton>
+                        </label>
+                        @if (wProgramFile != null) { <MudText Inline="true" Class="ml-4">@wProgramFile.Name</MudText> }
+                        <MudButton OnClick="UploadWProgramFile" Variant="Variant.Filled" Color="Color.Success" Disabled="@(wProgramFile == null || isUploading)" Class="float-end">@Localizer["UploadFile"]</MudButton>
+                    }
+                    else
+                    {
+                        <MudChip T="object" Icon="@Icons.Material.Filled.Check" Color="Color.Success" Variant="Variant.Text">@Localizer["LoadedCorrectly"]</MudChip>
+                    }
+                </MudPaper>
+
+                <MudPaper Elevation="0" Class="pa-4 rounded-lg" Style="border: 1px solid var(--mud-palette-lines-default)">
+                    <MudText Typo="Typo.h6" GutterBottom="true">@Localizer["UploadWBuyer"]</MudText>
+                    @if (!isWBuyerUploaded)
+                    {
+                        <label for="wbuyer-file">
+                            <InputFile id="wbuyer-file" OnChange="HandleWBuyerFileSelected" hidden />
+                            <MudButton HtmlTag="span" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.AttachFile">
+                                @Localizer["SelectFile"]
+                            </MudButton>
+                        </label>
+                        @if (wBuyerFile != null) { <MudText Inline="true" Class="ml-4">@wBuyerFile.Name</MudText> }
+                        <MudButton OnClick="UploadWBuyerFile" Variant="Variant.Filled" Color="Color.Success" Disabled="@(wBuyerFile == null || isUploading)" Class="float-end">@Localizer["UploadFile"]</MudButton>
+                    }
+                    else
+                    {
+                        <MudChip T="object" Icon="@Icons.Material.Filled.Check" Color="Color.Success" Variant="Variant.Text">@Localizer["LoadedCorrectly"]</MudChip>
+                    }
+                </MudPaper>
+
+                <MudPaper Elevation="0" Class="pa-4 rounded-lg" Style="border: 1px solid var(--mud-palette-lines-default)">
+                    <MudText Typo="Typo.h6" GutterBottom="true">@Localizer["UploadWSupplier"]</MudText>
+                    @if (!isWSupplierUploaded)
+                    {
+                        <label for="wsupplier-file">
+                            <InputFile id="wsupplier-file" OnChange="HandleWSupplierFileSelected" hidden />
+                            <MudButton HtmlTag="span" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.AttachFile">
+                                @Localizer["SelectFile"]
+                            </MudButton>
+                        </label>
+                        @if (wSupplierFile != null) { <MudText Inline="true" Class="ml-4">@wSupplierFile.Name</MudText> }
+                        <MudButton OnClick="UploadWSupplierFile" Variant="Variant.Filled" Color="Color.Success" Disabled="@(wSupplierFile == null || isUploading)" Class="float-end">@Localizer["UploadFile"]</MudButton>
+                    }
+                    else
+                    {
+                        <MudChip T="object" Icon="@Icons.Material.Filled.Check" Color="Color.Success" Variant="Variant.Text">@Localizer["LoadedCorrectly"]</MudChip>
+                    }
+                </MudPaper>
+
+            </MudStack>
+        }
+        else
+        {
+            <MudStack AlignItems="AlignItems.Center" Spacing="4" Class="py-8">
+                <MudIcon Icon="@Icons.Material.Filled.CloudDone" Color="Color.Success" Size="Size.Large" Style="font-size: 4rem;" />
+                <MudText Typo="Typo.h5" Align="Align.Center">@Localizer["AllFilesUpload"]</MudText>
+                <MudText Align="Align.Center">@Localizer["MROBacklogFilesUpload"]</MudText>
+
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           OnClick="GoToNextProcess"
+                           EndIcon="@Icons.Material.Filled.ArrowForward">
+                    @Localizer["UploadReceiving"]
+                </MudButton>
+            </MudStack>
+        }
+    </MudPaper>
+
+    @if (!string.IsNullOrEmpty(statusMessage) && !allFilesUploaded)
+    {
+        <MudAlert Severity="@alertSeverity" Class="mt-4">@statusMessage</MudAlert>
+    }
+
+    @if (!allFilesUploaded)
+    {
+        <div class="d-flex justify-center mt-6">
+            <MudButton Variant="Variant.Outlined" Color="Color.Secondary" OnClick="GoHome">
+                @Localizer["MenuUploadData"]
+            </MudButton>
+        </div>
+    }
+
+</MudContainer>

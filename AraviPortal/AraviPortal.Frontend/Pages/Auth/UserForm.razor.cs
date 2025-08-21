@@ -14,7 +14,7 @@ public partial class UserForm
 {
     private EditContext editContext = null!;
     private City selectedCity = new();
-    private List<City>? cities;
+    private List<City> cities = new List<City>();
 
     [Inject] private SweetAlertService SweetAlertService { get; set; } = null!;
     [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
@@ -34,11 +34,16 @@ public partial class UserForm
     {
         await LoadCitiesAsync();
 
-        // Si se está editando y el UserEditDTO tiene CityId, precargar la ciudad seleccionada
-        if (UserEditDTO.CityId > 0 && cities != null)
+        if (cities != null && cities.Any() && UserEditDTO.CityId > 0)
         {
             selectedCity = cities.FirstOrDefault(c => c.Id == UserEditDTO.CityId) ?? new City();
         }
+        else
+        {
+            selectedCity = new City();
+        }
+
+        StateHasChanged();
     }
 
     private async Task LoadCitiesAsync()
@@ -48,9 +53,10 @@ public partial class UserForm
         {
             var message = await responseHttp.GetErrorMessageAsync();
             await SweetAlertService.FireAsync("Error", message, SweetAlertIcon.Error);
+            cities = new List<City>();
             return;
         }
-        cities = responseHttp.Response;
+        cities = responseHttp.Response ?? new List<City>();
     }
 
     private async Task OnBeforeInternalNavigation(LocationChangingContext context)
@@ -81,11 +87,16 @@ public partial class UserForm
     private async Task<IEnumerable<City>> SearchCity(string searchText, CancellationToken cancellationToken)
     {
         await Task.Delay(5);
+        if (cities == null || !cities.Any())
+        {
+            return Enumerable.Empty<City>();
+        }
+
         if (string.IsNullOrWhiteSpace(searchText))
         {
-            return cities!;
+            return cities;
         }
-        return cities!
+        return cities
             .Where(x => x.Name.Contains(searchText, StringComparison.InvariantCultureIgnoreCase))
             .ToList();
     }

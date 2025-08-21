@@ -151,6 +151,24 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All files have been uploaded!.
+        /// </summary>
+        public static string AllFilesUpload {
+            get {
+                return ResourceManager.GetString("AllFilesUpload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Applications.
+        /// </summary>
+        public static string Apps {
+            get {
+                return ResourceManager.GetString("Apps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Authorizing....
         /// </summary>
         public static string Authorizing {
@@ -313,6 +331,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Courses.
+        /// </summary>
+        public static string Courses {
+            get {
+                return ResourceManager.GetString("Courses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
         public static string Create {
@@ -331,11 +358,29 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The daily data upload has been completed..
+        /// </summary>
+        public static string DailyDataUpload {
+            get {
+                return ResourceManager.GetString("DailyDataUpload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Database administrator.
         /// </summary>
         public static string DatabaseAdmin {
             get {
                 return ResourceManager.GetString("DatabaseAdmin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error saving to the database: {0}.
+        /// </summary>
+        public static string DatabaseSaveError {
+            get {
+                return ResourceManager.GetString("DatabaseSaveError", resourceCulture);
             }
         }
         
@@ -417,6 +462,15 @@ namespace AraviPortal.Shared.Resources {
         public static string EmailAlreadyExists {
             get {
                 return ResourceManager.GetString("EmailAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An unexpected error has occurred..
+        /// </summary>
+        public static string ERR_Unexpected {
+            get {
+                return ResourceManager.GetString("ERR_Unexpected", resourceCulture);
             }
         }
         
@@ -520,6 +574,69 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No files have been selected..
+        /// </summary>
+        public static string ERR010 {
+            get {
+                return ResourceManager.GetString("ERR010", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File format not supported. Please upload an .xlsx or .csv file..
+        /// </summary>
+        public static string ERR011 {
+            get {
+                return ResourceManager.GetString("ERR011", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The name of the spreadsheet has not been provided..
+        /// </summary>
+        public static string ERR012 {
+            get {
+                return ResourceManager.GetString("ERR012", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error converting Excel file to CSV: {0}.
+        /// </summary>
+        public static string ERR013 {
+            get {
+                return ResourceManager.GetString("ERR013", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must be logged in to perform this operation..
+        /// </summary>
+        public static string ERR401 {
+            get {
+                return ResourceManager.GetString("ERR401", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You do not have permission to perform this operation..
+        /// </summary>
+        public static string ERR403 {
+            get {
+                return ResourceManager.GetString("ERR403", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resource not found..
+        /// </summary>
+        public static string ERR404 {
+            get {
+                return ResourceManager.GetString("ERR404", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
@@ -538,11 +655,74 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File not selected.
+        /// </summary>
+        public static string FileNotSelected {
+            get {
+                return ResourceManager.GetString("FileNotSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File selected:.
+        /// </summary>
+        public static string FileSelected {
+            get {
+                return ResourceManager.GetString("FileSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error uploading file: {0}.
+        /// </summary>
+        public static string FileUploadError {
+            get {
+                return ResourceManager.GetString("FileUploadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File uploaded successfully and data saved to the database!.
+        /// </summary>
+        public static string FileUploadSuccess {
+            get {
+                return ResourceManager.GetString("FileUploadSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An unexpected error occurred..
+        /// </summary>
+        public static string FileUploadUnexpectedError {
+            get {
+                return ResourceManager.GetString("FileUploadUnexpectedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filter.
         /// </summary>
         public static string Filter {
             get {
                 return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finance.
+        /// </summary>
+        public static string Finance {
+            get {
+                return ResourceManager.GetString("Finance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finish.
+        /// </summary>
+        public static string Finish {
+            get {
+                return ResourceManager.GetString("Finish", resourceCulture);
             }
         }
         
@@ -601,11 +781,38 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Human Resources.
+        /// </summary>
+        public static string HumanResources {
+            get {
+                return ResourceManager.GetString("HumanResources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image.
         /// </summary>
         public static string Image {
             get {
                 return ResourceManager.GetString("Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Important note.
+        /// </summary>
+        public static string ImportantNote {
+            get {
+                return ResourceManager.GetString("ImportantNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inventories.
+        /// </summary>
+        public static string Inventories {
+            get {
+                return ResourceManager.GetString("Inventories", resourceCulture);
             }
         }
         
@@ -624,6 +831,15 @@ namespace AraviPortal.Shared.Resources {
         public static string IsCorrect {
             get {
                 return ResourceManager.GetString("IsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IT.
+        /// </summary>
+        public static string IT {
+            get {
+                return ResourceManager.GetString("IT", resourceCulture);
             }
         }
         
@@ -673,6 +889,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loaded Correctly.
+        /// </summary>
+        public static string LoadedCorrectly {
+            get {
+                return ResourceManager.GetString("LoadedCorrectly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Location.
         /// </summary>
         public static string Location {
@@ -687,6 +912,15 @@ namespace AraviPortal.Shared.Resources {
         public static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logistics.
+        /// </summary>
+        public static string Logistics {
+            get {
+                return ResourceManager.GetString("Logistics", resourceCulture);
             }
         }
         
@@ -727,11 +961,38 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maintenance.
+        /// </summary>
+        public static string Maintenance {
+            get {
+                return ResourceManager.GetString("Maintenance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The field {0} cannot be longer than {1} characters..
         /// </summary>
         public static string MaxLength {
             get {
                 return ResourceManager.GetString("MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SIS menu.
+        /// </summary>
+        public static string MenuSIS {
+            get {
+                return ResourceManager.GetString("MenuSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menu upload data.
+        /// </summary>
+        public static string MenuUploadData {
+            get {
+                return ResourceManager.GetString("MenuUploadData", resourceCulture);
             }
         }
         
@@ -759,6 +1020,15 @@ namespace AraviPortal.Shared.Resources {
         public static string MissionVisionValues {
             get {
                 return ResourceManager.GetString("MissionVisionValues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The MRO Backlog file set has been processed successfully..
+        /// </summary>
+        public static string MROBacklogFilesUpload {
+            get {
+                return ResourceManager.GetString("MROBacklogFilesUpload", resourceCulture);
             }
         }
         
@@ -970,11 +1240,65 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Power BI.
+        /// </summary>
+        public static string PowerBi {
+            get {
+                return ResourceManager.GetString("PowerBi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Previous video.
         /// </summary>
         public static string PreviousVideo {
             get {
                 return ResourceManager.GetString("PreviousVideo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Procurement.
+        /// </summary>
+        public static string Procurement {
+            get {
+                return ResourceManager.GetString("Procurement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Production Control.
+        /// </summary>
+        public static string ProductionControl {
+            get {
+                return ResourceManager.GetString("ProductionControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program information storage..
+        /// </summary>
+        public static string ProgramInformationStorage {
+            get {
+                return ResourceManager.GetString("ProgramInformationStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quality Assurance.
+        /// </summary>
+        public static string QualityAssurance {
+            get {
+                return ResourceManager.GetString("QualityAssurance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quality Control.
+        /// </summary>
+        public static string QualityControl {
+            get {
+                return ResourceManager.GetString("QualityControl", resourceCulture);
             }
         }
         
@@ -1047,6 +1371,15 @@ namespace AraviPortal.Shared.Resources {
         public static string Remarks {
             get {
                 return ResourceManager.GetString("Remarks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reports.
+        /// </summary>
+        public static string Reports {
+            get {
+                return ResourceManager.GetString("Reports", resourceCulture);
             }
         }
         
@@ -1150,6 +1483,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select the file to upload..
+        /// </summary>
+        public static string SelectFileExcel {
+            get {
+                return ResourceManager.GetString("SelectFileExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Send.
         /// </summary>
         public static string Send {
@@ -1164,6 +1506,51 @@ namespace AraviPortal.Shared.Resources {
         public static string SendEmailConfirmationMessage {
             get {
                 return ResourceManager.GetString("SendEmailConfirmationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SharePoint: Your official backup.
+        /// </summary>
+        public static string SharePointStorage {
+            get {
+                return ResourceManager.GetString("SharePointStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S.I.S..
+        /// </summary>
+        public static string SIS {
+            get {
+                return ResourceManager.GetString("SIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System Integration Software.
+        /// </summary>
+        public static string SISName {
+            get {
+                return ResourceManager.GetString("SISName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SRAA.
+        /// </summary>
+        public static string SRAA {
+            get {
+                return ResourceManager.GetString("SRAA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oil Analysis Recording System.
+        /// </summary>
+        public static string SRAAName {
+            get {
+                return ResourceManager.GetString("SRAAName", resourceCulture);
             }
         }
         
@@ -1222,7 +1609,133 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to us.
+        ///   Looks up a localized string similar to Training.
+        /// </summary>
+        public static string Training {
+            get {
+                return ResourceManager.GetString("Training", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload backlog report.
+        /// </summary>
+        public static string UploadBacklog {
+            get {
+                return ResourceManager.GetString("UploadBacklog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload daily files.
+        /// </summary>
+        public static string Uploaddaily {
+            get {
+                return ResourceManager.GetString("Uploaddaily", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uploaded File.
+        /// </summary>
+        public static string UploadedFile {
+            get {
+                return ResourceManager.GetString("UploadedFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload File.
+        /// </summary>
+        public static string UploadFile {
+            get {
+                return ResourceManager.GetString("UploadFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uploading file, please wait....
+        /// </summary>
+        public static string UploadingFile {
+            get {
+                return ResourceManager.GetString("UploadingFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload monthly files.
+        /// </summary>
+        public static string Uploadmonthly {
+            get {
+                return ResourceManager.GetString("Uploadmonthly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload Receiving Report.
+        /// </summary>
+        public static string UploadReceiving {
+            get {
+                return ResourceManager.GetString("UploadReceiving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload Shipping Report.
+        /// </summary>
+        public static string UploadShipping {
+            get {
+                return ResourceManager.GetString("UploadShipping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload Summary AWB.
+        /// </summary>
+        public static string UploadSummary {
+            get {
+                return ResourceManager.GetString("UploadSummary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload UCS AMMS.
+        /// </summary>
+        public static string UploadUCSAMMS {
+            get {
+                return ResourceManager.GetString("UploadUCSAMMS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload W Buyer file.
+        /// </summary>
+        public static string UploadWBuyer {
+            get {
+                return ResourceManager.GetString("UploadWBuyer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload W Program file.
+        /// </summary>
+        public static string UploadWProgram {
+            get {
+                return ResourceManager.GetString("UploadWProgram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload W Supplier file.
+        /// </summary>
+        public static string UploadWSupplier {
+            get {
+                return ResourceManager.GetString("UploadWSupplier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Us.
         /// </summary>
         public static string Us {
             get {
@@ -1330,6 +1843,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to W buyer.
+        /// </summary>
+        public static string WBuyer {
+            get {
+                return ResourceManager.GetString("WBuyer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome to the IT awareness course..
         /// </summary>
         public static string WelcomeCourse {
@@ -1390,6 +1912,51 @@ namespace AraviPortal.Shared.Resources {
         public static string WhatDifferentTextB {
             get {
                 return ResourceManager.GetString("WhatDifferentTextB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workflow Update.
+        /// </summary>
+        public static string Workflowupdate {
+            get {
+                return ResourceManager.GetString("Workflowupdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The worksheet named {0} was not found..
+        /// </summary>
+        public static string WorkSheetNotFound {
+            get {
+                return ResourceManager.GetString("WorkSheetNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W program.
+        /// </summary>
+        public static string WProgram {
+            get {
+                return ResourceManager.GetString("WProgram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect file format.
+        /// </summary>
+        public static string WrongFileFormat {
+            get {
+                return ResourceManager.GetString("WrongFileFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W supplier.
+        /// </summary>
+        public static string WSupplier {
+            get {
+                return ResourceManager.GetString("WSupplier", resourceCulture);
             }
         }
         

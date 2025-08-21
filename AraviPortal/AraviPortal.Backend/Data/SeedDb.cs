@@ -1,5 +1,4 @@
-﻿using AraviPortal.Backend.UnitsOfWork.Implementations;
-using AraviPortal.Backend.UnitsOfWork.Interfaces;
+﻿using AraviPortal.Backend.UnitsOfWork.Interfaces;
 using AraviPortal.Shared.Entities;
 using AraviPortal.Shared.Enums;
 using Microsoft.EntityFrameworkCore;
@@ -79,6 +78,17 @@ public class SeedDb
         await _usersUnitOfWork.CheckRoleAsync(UserType.Inventory_Custodians.ToString());
         await _usersUnitOfWork.CheckRoleAsync(UserType.Inventory_InventoryClerks.ToString());
         await _usersUnitOfWork.CheckRoleAsync(UserType.Inventory_ITMaintenanceTeam.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Course_Student_SIS_Admin.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Course_Student_SIS_Report.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Course_Student_SIS_CustomerServices.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Course_Student_SIS_Repairables.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Course_Student_SRAA_Admin.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Course_Student_SRAA_ConsultantUser.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Course_Student_SRAA_DataEntry.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Course_Student_Inventory_Admin.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Course_Student_Inventory_Custodians.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Course_Student_Inventory_InventoryClerks.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Course_Student_Inventory_ITMaintenanceTeam.ToString());
     }
 
     private async Task CheckCitiesAsync()

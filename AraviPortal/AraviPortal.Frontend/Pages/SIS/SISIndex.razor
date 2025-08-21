@@ -1,0 +1,40 @@
+﻿@page "/sis"
+
+<MudText Typo="Typo.h4" GutterBottom="true" Align="Align.Center">@Localizer["SISName"] (@Localizer["SIS"])</MudText>
+        <MudGrid Spacing="4"></MudGrid>
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="my-8">
+    <MudPaper Elevation="3" Class="pa-4 text-center">
+        <MudGrid Spacing="10">
+            <MudItem Xs="12" Sm="6" Md="4">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" FullWidth="true"
+                           Href="/uploaddaily" Class="py-4">
+                    @Localizer["Uploaddaily"]
+                </MudButton>
+            </MudItem>
+            <MudItem Xs="12" Sm="6" Md="4">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" FullWidth="true"
+                           Href="/workflowupdate" Class="py-4">
+                    @Localizer["Workflowupdate"]
+                </MudButton>
+            </MudItem>
+            <MudItem Xs="12" Sm="6" Md="4">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" FullWidth="true"
+                           Href="/uploadmonthly" Class="py-4">
+                    @Localizer["Uploadmonthly"]
+                </MudButton>
+            </MudItem>
+            <MudItem Xs="12" Sm="6" Md="6">
+                <MudButton Variant="Variant.Filled" Color="Color.Info" Size="Size.Large" FullWidth="true"
+                           Href="/reports" Class="py-4">
+                    @Localizer["Reports"]
+                </MudButton>
+            </MudItem>
+            <MudItem Xs="12" Sm="6" Md="6">
+                <MudButton Variant="Variant.Filled" Color="Color.Warning" Size="Size.Large" FullWidth="true"
+                           Href="/administratorMenuSIS" Class="py-4">
+                    @Localizer["AdministratorMenu"]
+                </MudButton>
+            </MudItem>
+        </MudGrid>
+    </MudPaper>
+</MudContainer>

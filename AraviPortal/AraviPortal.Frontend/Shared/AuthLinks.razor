@@ -1,7 +1,7 @@
 ﻿<AuthorizeView>
     <Authorized>
         <MudContainer Style="width: 18rem; margin-top: 2rem; margin-bottom: 2rem;">
-            <MudText Typo="Typo.body1" Align="Align.Center">@Localizer["Hello"], @context.User.Identity!.Name</MudText>
+            <MudText Typo="Typo.body1" Align="Align.Center">@Localizer["Hello"], @FullName</MudText>
             <MudPaper Elevation="1" Class="d-flex justify-content-center align-content-center">
                 <MudStack Spacing="2">
                     <MudButton Variant="Variant.Text" OnClick="EditAction">@Localizer["EditUserProfile"] <MudIcon Icon="@Icons.Material.Filled.Person" /> </MudButton>

@@ -1,0 +1,53 @@
+﻿@page "/uploaddaily"
+
+<MudText Typo="Typo.h4" GutterBottom="true" Align="Align.Center">@Localizer["MenuUploadData"]</MudText>
+<MudText Typo="Typo.h4" GutterBottom="true" Align="Align.Center">@Localizer["SIS"]</MudText>
+<MudGrid Spacing="4"></MudGrid>
+<MudContainer MaxWidth="MaxWidth.ExtraSmall" Class="my-8">
+    <MudPaper Elevation="3" Class="pa-4 text-center">
+        <MudGrid Spacing="10">
+            <MudItem Xs="12" Sm="12" Md="12">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" FullWidth="true"
+                           Href="/uploadUCSAMMS" Class="py-4">
+                    @Localizer["UploadUCSAMMS"]
+                </MudButton>
+            </MudItem>
+            <MudItem Xs="12" Sm="12" Md="12">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" FullWidth="true"
+                           Href="/UploadMROBacklog" Class="py-4">
+                    @Localizer["UploadBacklog"]
+                </MudButton>
+            </MudItem>
+            <MudItem Xs="12" Sm="12" Md="12">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" FullWidth="true"
+                           Href="/uploadMROReceiving" Class="py-4">
+                    @Localizer["UploadReceiving"]
+                </MudButton>
+            </MudItem>
+            <MudItem Xs="12" Sm="12" Md="12">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" FullWidth="true"
+                           Href="/uploadMROShipping" Class="py-4">
+                    @Localizer["UploadShipping"]
+                </MudButton>
+            </MudItem>
+            <MudItem Xs="12" Sm="12" Md="12">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" FullWidth="true"
+                           Href="/uploadSummary" Class="py-4">
+                    @Localizer["UploadSummary"]
+                </MudButton>
+            </MudItem>
+        </MudGrid>
+    </MudPaper>
+</MudContainer>
+
+<MudGrid Justify="Justify.Center" Spacing="6" Class="mud-mt-10">
+    <MudItem xs="12">
+        <div style="text-align: center;">
+            <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Size="Size.Large"
+                       StartIcon="@Icons.Material.Filled.Menu" Class="mud-py-4 mud-px-8 rounded-pill"
+                       OnClick="GoHome">
+                @Localizer["MenuSIS"]
+            </MudButton>
+        </div>
+    </MudItem>
+</MudGrid>
