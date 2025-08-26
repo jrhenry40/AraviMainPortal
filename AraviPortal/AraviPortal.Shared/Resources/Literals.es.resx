@@ -754,4 +754,7 @@ Desarrollamos nuestras soluciones utilizando las plataformas más modernas y rob
   <data name="Finish" xml:space="preserve">
     <value>Finalizar</value>
   </data>
+  <data name="Nickname" xml:space="preserve">
+    <value>Apodo</value>
+  </data>
 </root>

@@ -1087,6 +1087,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to c.
+        /// </summary>
+        public static string Nickname {
+            get {
+                return ResourceManager.GetString("Nickname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         public static string No {

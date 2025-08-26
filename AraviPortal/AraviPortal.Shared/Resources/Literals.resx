@@ -754,4 +754,7 @@ We develop our solutions using the most modern and robust platforms:</value>
   <data name="Finish" xml:space="preserve">
     <value>Finish</value>
   </data>
+  <data name="Nickname" xml:space="preserve">
+    <value>c</value>
+  </data>
 </root>

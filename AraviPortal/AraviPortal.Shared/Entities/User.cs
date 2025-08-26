@@ -29,4 +29,8 @@ public class User : IdentityUser
 
     [Display(Name = "User", ResourceType = typeof(Literals))]
     public string FullName => $"{FirstName} {LastName}";
+
+    [Display(Name = "Nickname", ResourceType = typeof(Literals))]
+    [MaxLength(50)]
+    public string? Nickname { get; set; }
 }

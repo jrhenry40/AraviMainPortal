@@ -27,12 +27,24 @@ public class SeedDb
 
     private async Task CheckUsersAsync()
     {
-        await CheckUserAsync("Guardian", "IT", "aravi-itsoftware@amentum.com", "3108608778", UserType.Superadmin);
-        await CheckUserAsync("Henry", "Rios", "henry.rios@amentum.com", "3213470465", UserType.Superadmin);
-        await CheckUserAsync("Adriana", "Reyes", "adriana.reyes@amentum.com", "3108595190", UserType.Superadmin);
+        await CheckUserAsync("Guardian", "IT", "aravi-itsoftware@amentum.com", "3108608778", UserType.Superadmin, "GUARDIAN");
+        await CheckUserAsync("Henry", "Rios", "henry.rios@amentum.com", "3213470465", UserType.Superadmin, "HRIOS");
+        await CheckUserAsync("Adriana", "Reyes", "adriana.reyes@amentum.com", "3108595190", UserType.Superadmin, "AREYES");
+
+        await CheckUserAsync("Nancy", "Torres Aguilera", "nancy.torres@amentum.com", "3108594171", UserType.User, "NATORRES");
+        await CheckUserAsync("Paola Alejandra", "Villalobos", "Paola.VillalobosCarrillo@amentum.com", "3183662209", UserType.User, "PVILLALOBOS");
+        await CheckUserAsync("Vanessa", "Vanessa", "Vanessa.ChicaJaramillo@amentum.com", "3166919256", UserType.User, "VCHICA");
+        await CheckUserAsync("Juan", "Vasquez", "juan.vasquez@amentum.com", "3109585190", UserType.User, "JVASQUEZ");
+        await CheckUserAsync("Fernando", "Castellanos Salamanca", "Fernando.Castellanos@amentum.com", "3214537757", UserType.User, "FCASTELLANOS");
+        await CheckUserAsync("Leonardo", "Valenzuela Roa", "Leonardo.Valenzuela@amentum.com", "3108594185", UserType.User, "LVALENZUELA");
+        await CheckUserAsync("Jonatan", "Orozco", "Jonatan.OrozcoValencia@amentum.com", "3214400688", UserType.User, "JOROZCO");
+        await CheckUserAsync("Jairo", "Castro Melo", "Jairo.Castro@amentum.com", "3108595220", UserType.User, "JCASTRO");
+        await CheckUserAsync("Diego Hernan", "Silva", "Diego.Silva@amentum.com", "3188481292", UserType.User, "DSILVA");
+        await CheckUserAsync("Luis Miguel", "Rodriguez", "luis.rodriguez@amentum.com", "3108599051", UserType.User, "LRODRIGUEZ");
+        await CheckUserAsync("Lourdes", "Arucas", "Arucas.Lourdes@amentum.com", "3109589150", UserType.User, "LARUCAS");
     }
 
-    private async Task<User> CheckUserAsync(string firstName, string lastName, string email, string phone, UserType userType)
+    private async Task<User> CheckUserAsync(string firstName, string lastName, string email, string phone, UserType userType, string nickname)
     {
         var user = await _usersUnitOfWork.GetUserAsync(email);
         if (user == null)
@@ -46,7 +58,8 @@ public class SeedDb
                 UserName = email,
                 PhoneNumber = phone,
                 City = city!,
-                UserType = userType
+                UserType = userType,
+                Nickname = nickname
             };
 
             await _usersUnitOfWork.AddUserAsync(user, "123456");
