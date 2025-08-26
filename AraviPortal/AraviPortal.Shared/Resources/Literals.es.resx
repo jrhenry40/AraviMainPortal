@@ -757,4 +757,7 @@ Desarrollamos nuestras soluciones utilizando las plataformas más modernas y rob
   <data name="Nickname" xml:space="preserve">
     <value>Apodo</value>
   </data>
+  <data name="DailyProcessingStarted" xml:space="preserve">
+    <value>Carga de archivo AWB exitosa. Iniciando proceso de actualización de datos...</value>
+  </data>
 </root>

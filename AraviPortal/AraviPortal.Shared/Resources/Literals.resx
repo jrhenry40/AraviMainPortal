@@ -757,4 +757,7 @@ We develop our solutions using the most modern and robust platforms:</value>
   <data name="Nickname" xml:space="preserve">
     <value>c</value>
   </data>
+  <data name="DailyProcessingStarted" xml:space="preserve">
+    <value>AWB file upload successful. Starting data update process...</value>
+  </data>
 </root>

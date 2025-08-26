@@ -23,13 +23,15 @@ public class UploadSISSummaryAWBController : ControllerBase
     private readonly ILogger<UploadSISSummaryAWBController> _logger;
     private readonly IFileConversionServiceUnitOfWork _unitOfWork;
     private readonly IStringLocalizer<Literals> _localizer;
+    private readonly IDailyProcessUnitOfWork _dailyProcessUnitOfWork;
 
-    public UploadSISSummaryAWBController(DataContext context, ILogger<UploadSISSummaryAWBController> logger, IFileConversionServiceUnitOfWork unitOfWork, IStringLocalizer<Literals> localizer)
+    public UploadSISSummaryAWBController(DataContext context, ILogger<UploadSISSummaryAWBController> logger, IFileConversionServiceUnitOfWork unitOfWork, IStringLocalizer<Literals> localizer, IDailyProcessUnitOfWork dailyProcessUnitOfWork)
     {
         _context = context;
         _logger = logger;
         _unitOfWork = unitOfWork;
         _localizer = localizer;
+        _dailyProcessUnitOfWork = dailyProcessUnitOfWork;
     }
 
     [HttpPost("upload-summary-awb")]
@@ -59,7 +61,6 @@ public class UploadSISSummaryAWBController : ControllerBase
             };
 
             using var csvReader = new CsvReader(streamReader, config);
-            // El mapeo ahora usará tu conversor personalizado.
             csvReader.Context.RegisterClassMap<SISSummaryAWBMap>();
 
             await _context.Database.ExecuteSqlRawAsync("EXEC TruncateSISData @TableName", new SqlParameter("@TableName", "SISSummaryAWB"));
@@ -69,7 +70,11 @@ public class UploadSISSummaryAWBController : ControllerBase
             await _context.SISSummaryAWB.AddRangeAsync(records);
             await _context.SaveChangesAsync();
 
-            return Ok(new { Message = "Archivo Summary AWB subido y datos guardados correctamente." });
+            _logger.LogInformation("Carga de archivo AWB exitosa. Iniciando proceso de actualización de datos...");
+            await _dailyProcessUnitOfWork.ExecuteDailyUpdateAsync();
+            _logger.LogInformation("Proceso de actualización de datos finalizado exitosamente.");
+
+            return Ok(new { Message = "Archivo Summary AWB subido y datos procesados correctamente." });
         }
         catch (Exception ex)
         {

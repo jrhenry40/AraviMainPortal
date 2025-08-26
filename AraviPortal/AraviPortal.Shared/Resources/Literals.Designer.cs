@@ -367,6 +367,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AWB file upload successful. Starting data update process....
+        /// </summary>
+        public static string DailyProcessingStarted {
+            get {
+                return ResourceManager.GetString("DailyProcessingStarted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Database administrator.
         /// </summary>
         public static string DatabaseAdmin {

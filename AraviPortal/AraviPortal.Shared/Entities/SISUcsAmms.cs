@@ -189,4 +189,12 @@ public class SISUcsAmms
     //39
     [Column("earecinffinbound_SISUcsAmms")]
     public int? earecinffinbound_SISUcsAmms { get; set; }
+
+    //40
+    [Column("assetid_SISUcsAmms")]
+    public Guid? assetid_SISUcsAmms { get; set; }
+
+    //41
+    [Column("qtyawb_SISUcsAmms")]
+    public int? qtyawb_SISUcsAmms { get; set; }
 }
