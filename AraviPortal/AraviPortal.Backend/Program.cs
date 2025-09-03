@@ -95,6 +95,9 @@ builder.Services.AddScoped<IFileConversionServiceUnitOfWork, FileConversionServi
 builder.Services.AddScoped<IDailyProcessRepository, DailyProcessRepository>();
 builder.Services.AddScoped<IDailyProcessUnitOfWork, DailyProcessUnitOfWork>();
 
+builder.Services.AddScoped<ISISUcsAmmsRepository, SISUcsAmmsRepository>();
+builder.Services.AddScoped<ISISUcsAmmsUnitOfWork, SISUcsAmmsUnitOfWork>();
+
 builder.Services.AddIdentity<User, IdentityRole>(x =>
 {
     x.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultAuthenticatorProvider;

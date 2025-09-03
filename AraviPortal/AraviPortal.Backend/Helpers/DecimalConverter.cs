@@ -9,7 +9,6 @@ public class DecimalConverter : DefaultTypeConverter
 {
     public override object ConvertFromString(string? text, IReaderRow row, MemberMapData memberMapData)
     {
-        // ✅ Ahora también maneja el error #REF!
         if (string.IsNullOrWhiteSpace(text) || text.Trim().Equals("#VALUE!", StringComparison.OrdinalIgnoreCase) || text.Trim().Equals("#REF!", StringComparison.OrdinalIgnoreCase))
         {
             return null!;
