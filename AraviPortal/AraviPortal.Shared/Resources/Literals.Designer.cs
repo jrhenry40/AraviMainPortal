@@ -439,6 +439,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download To Report.
+        /// </summary>
+        public static string DownloadToReport {
+            get {
+                return ResourceManager.GetString("DownloadToReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {
@@ -664,6 +673,24 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exporting....
+        /// </summary>
+        public static string Exporting {
+            get {
+                return ResourceManager.GetString("Exporting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export To Excel.
+        /// </summary>
+        public static string ExportToExcel {
+            get {
+                return ResourceManager.GetString("ExportToExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File not selected.
         /// </summary>
         public static string FileNotSelected {
@@ -750,6 +777,15 @@ namespace AraviPortal.Shared.Resources {
         public static string ForgottenYourPassword {
             get {
                 return ResourceManager.GetString("ForgottenYourPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate UCS AMMS Report.
+        /// </summary>
+        public static string GenerateSISUcsAmmsReport {
+            get {
+                return ResourceManager.GetString("GenerateSISUcsAmmsReport", resourceCulture);
             }
         }
         
@@ -1393,6 +1429,24 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There was an error generating the report..
+        /// </summary>
+        public static string ReportGeneratedError {
+            get {
+                return ResourceManager.GetString("ReportGeneratedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report generated! Redirecting to the main menu....
+        /// </summary>
+        public static string ReportGeneratedSuccess {
+            get {
+                return ResourceManager.GetString("ReportGeneratedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reports.
         /// </summary>
         public static string Reports {
@@ -1551,6 +1605,24 @@ namespace AraviPortal.Shared.Resources {
         public static string SISName {
             get {
                 return ResourceManager.GetString("SISName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click the button to download the full report in Excel format..
+        /// </summary>
+        public static string SISUcsAmmsReportDescription {
+            get {
+                return ResourceManager.GetString("SISUcsAmmsReportDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UCS AMMS Report.
+        /// </summary>
+        public static string SISUcsAmmsReportTitle {
+            get {
+                return ResourceManager.GetString("SISUcsAmmsReportTitle", resourceCulture);
             }
         }
         

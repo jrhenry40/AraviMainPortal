@@ -1,36 +1,34 @@
-﻿// wwwroot/js/videoInterop.js
+﻿let lastTime = 0;
+let seeking = false;
+const videoStates = new Map();
 
-// Función para reproducir el video
 window.playVideo = (videoElement) => {
     if (videoElement) {
         videoElement.play();
     }
 };
 
-// Función para pausar el video
 window.pauseVideo = (videoElement) => {
     if (videoElement) {
         videoElement.pause();
     }
 };
 
-// Función para establecer el volumen
 window.setVideoVolume = (videoElement, volume) => {
     if (videoElement) {
         videoElement.volume = volume;
     }
 };
 
-// Función para alternar la pantalla completa
 window.toggleFullscreen = (videoElement) => {
     if (videoElement) {
         if (videoElement.requestFullscreen) {
             videoElement.requestFullscreen();
-        } else if (videoElement.mozRequestFullScreen) { // Firefox
+        } else if (videoElement.mozRequestFullScreen) {
             videoElement.mozRequestFullScreen();
-        } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        } else if (videoElement.webkitRequestFullscreen) {
             videoElement.webkitRequestFullscreen();
-        } else if (videoElement.msRequestFullscreen) { // IE/Edge
+        } else if (videoElement.msRequestFullscreen) {
             videoElement.msRequestFullscreen();
         }
     }
@@ -38,20 +36,74 @@ window.toggleFullscreen = (videoElement) => {
 
 window.setupVideoEndedListener = (videoElement, component) => {
     if (videoElement) {
-        // Elimina cualquier 'escuchador' anterior para evitar duplicados
-        // (Esto es una buena práctica para prevenir errores)
+        if (!videoStates.has(videoElement)) {
+            videoStates.set(videoElement, { lastTime: 0, seeking: false });
+        }
+        const state = videoStates.get(videoElement);
+
         if (videoElement.__blazorVideoEndedListener) {
             videoElement.removeEventListener('ended', videoElement.__blazorVideoEndedListener);
         }
 
-        // Define el nuevo 'escuchador'
-        const listener = () => {
-            // Llama al método de C# 'OnVideoEnded' en el componente Blazor
+        const endedListener = () => {
             component.invokeMethodAsync('OnVideoEnded');
         };
+        videoElement.addEventListener('ended', endedListener);
+        videoElement.__blazorVideoEndedListener = endedListener;
 
-        // Agrega el 'escuchador' y guarda una referencia a él
-        videoElement.addEventListener('ended', listener);
-        videoElement.__blazorVideoEndedListener = listener;
+        if (!videoElement.__blazorPreventSeekListenersAdded) {
+            const timeUpdateListener = () => {
+                if (!state.seeking && videoElement.currentTime > state.lastTime + 1) {
+                    videoElement.currentTime = state.lastTime;
+                }
+                state.lastTime = videoElement.currentTime;
+            };
+            videoElement.addEventListener('timeupdate', timeUpdateListener);
+
+            const seekingListener = () => {
+                state.seeking = true;
+            };
+            videoElement.addEventListener('seeking', seekingListener);
+
+            const seekedListener = () => {
+                state.seeking = false;
+            };
+            videoElement.addEventListener('seeked', seekedListener);
+
+            videoElement.__blazorPreventSeekListenersAdded = true;
+        }
+
+        const playListener = () => {
+            state.lastTime = videoElement.currentTime;
+        };
+        videoElement.addEventListener('play', playListener);
+        videoElement.__blazorPlayListener = playListener;
+
+        const canPlayListener = () => {
+            state.lastTime = videoElement.currentTime;
+        };
+        videoElement.addEventListener('canplaythrough', canPlayListener);
+        videoElement.__blazorCanPlayListener = canPlayListener;
+    }
+};
+
+window.cleanupVideoListeners = (videoElement) => {
+    if (videoElement) {
+        if (videoElement.__blazorVideoEndedListener) {
+            videoElement.removeEventListener('ended', videoElement.__blazorVideoEndedListener);
+            delete videoElement.__blazorVideoEndedListener;
+        }
+        if (videoElement.__blazorPreventSeekListenersAdded) {
+            delete videoElement.__blazorPreventSeekListenersAdded;
+        }
+        if (videoElement.__blazorPlayListener) {
+            videoElement.removeEventListener('play', videoElement.__blazorPlayListener);
+            delete videoElement.__blazorPlayListener;
+        }
+        if (videoElement.__blazorCanPlayListener) {
+            videoElement.removeEventListener('canplaythrough', videoElement.__blazorCanPlayListener);
+            delete videoElement.__blazorCanPlayListener;
+        }
+        videoStates.delete(videoElement);
     }
 };

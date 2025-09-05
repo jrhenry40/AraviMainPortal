@@ -1,48 +1,46 @@
 ﻿@page "/Reports-SISUcsAmmsReport"
 
-<h3>Reporte SISU</h3>
+<MudContainer MaxWidth="MaxWidth.Medium" Class="my-8">
+    <MudText Typo="Typo.h4" GutterBottom="true" Align="Align.Center">
+        <MudIcon Icon="@Icons.Material.Filled.Assessment" Class="mr-2" /> @Localizer["SISUcsAmmsReportTitle"]
+    </MudText>
 
-@if (reportData == null)
-{
-    <p><em>Cargando reporte...</em></p>
-}
-else
-{
-    <button class="btn btn-success mb-3" @onclick="ExportToExcel" disabled="@isExporting">
-        @if (isExporting)
-        {
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            <span> Exportando...</span>
-        }
-        else
-        {
-            <span>📥 Exportar a Excel</span>
-        }
-    </button>
+    <MudPaper Elevation="3" Class="pa-4">
+        <MudStack AlignItems="AlignItems.Center" Spacing="4" Class="py-8">
 
-    <div class="table-responsive">
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>Requisición</th>
-                    <th>Tipo</th>
-                    <th>Prioridad</th>
-                    <th>Part Number</th>
-                    <th>Descripción</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in reportData)
+            <MudIcon Icon="@Icons.Material.Filled.CloudDownload" Color="Color.Primary" Size="Size.Large" Style="font-size: 4rem;" />
+
+            <MudText Typo="Typo.h5" Align="Align.Center">@Localizer["GenerateSISUcsAmmsReport"]</MudText>
+            <MudText Align="Align.Center">@Localizer["SISUcsAmmsReportDescription"]</MudText>
+
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Success"
+                       OnClick="ExportToExcel"
+                       Disabled="@isExporting"
+                       StartIcon="@Icons.Material.Filled.Download">
+                @if (isExporting)
                 {
-                    <tr>
-                        <td>@item.Requisition</td>
-                        <td>@item.Type</td>
-                        <td>@item.Priority</td>
-                        <td>@item.PartNumber</td>
-                        <td>@item.Description</td>
-                    </tr>
+                    <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                    <MudText Class="ms-2">@Localizer["Exporting"]</MudText>
                 }
-            </tbody>
-        </table>
-    </div>
-}
+                else
+                {
+                    @Localizer["ExportToExcel"]
+                }
+            </MudButton>
+
+        </MudStack>
+    </MudPaper>
+
+    @if (Source != "upload")
+    {
+        <div class="d-flex justify-center mt-6">
+            <MudButton Variant="Variant.Outlined"
+                       Color="Color.Secondary"
+                       OnClick="GoToReportsMenu">
+                @Localizer["Return"]
+            </MudButton>
+        </div>
+    }
+
+</MudContainer>

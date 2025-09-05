@@ -33,7 +33,7 @@ public partial class UploadSummaryAWB
 
     private void GoToNextProcess()
     {
-        NavigationManager.NavigateTo("/uploaddaily");
+        NavigationManager.NavigateTo("/Reports-SISUcsAmmsReport?source=upload");
     }
 
     private async Task UploadFile()

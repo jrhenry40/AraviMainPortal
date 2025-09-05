@@ -760,4 +760,28 @@ We develop our solutions using the most modern and robust platforms:</value>
   <data name="DailyProcessingStarted" xml:space="preserve">
     <value>AWB file upload successful. Starting data update process...</value>
   </data>
+  <data name="SISUcsAmmsReportTitle" xml:space="preserve">
+    <value>UCS AMMS Report</value>
+  </data>
+  <data name="GenerateSISUcsAmmsReport" xml:space="preserve">
+    <value>Generate UCS AMMS Report</value>
+  </data>
+  <data name="SISUcsAmmsReportDescription" xml:space="preserve">
+    <value>Click the button to download the full report in Excel format.</value>
+  </data>
+  <data name="Exporting" xml:space="preserve">
+    <value>Exporting...</value>
+  </data>
+  <data name="ExportToExcel" xml:space="preserve">
+    <value>Export To Excel</value>
+  </data>
+  <data name="ReportGeneratedSuccess" xml:space="preserve">
+    <value>Report generated! Redirecting to the main menu...</value>
+  </data>
+  <data name="ReportGeneratedError" xml:space="preserve">
+    <value>There was an error generating the report.</value>
+  </data>
+  <data name="DownloadToReport" xml:space="preserve">
+    <value>Download To Report</value>
+  </data>
 </root>
