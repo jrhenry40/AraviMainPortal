@@ -2,15 +2,6 @@
     <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Rounded.Home">@Localizer["Home"]</MudNavLink>
     <MudDivider />
 
-    <AuthorizeView Roles="User, Superadmin, Course_Student_SIS_Admin">
-        <Authorized>
-            <MudNavGroup Title="@Localizer["Courses"]" Icon="@Icons.Material.Filled.School" Expanded="false">
-                <MudNavLink Href="/ITCourse" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.LaptopChromebook">@Localizer["ITcourse"]</MudNavLink>
-            </MudNavGroup>
-        </Authorized>
-    </AuthorizeView>
-    <MudDivider />
-
     <AuthorizeView>
         <Authorized>
             <MudNavGroup Title="@Localizer["Apps"]" Icon="@Icons.Material.Filled.Apps" Expanded="false">
@@ -38,6 +29,15 @@
     </AuthorizeView>
     <MudDivider />
 
+    <AuthorizeView Roles="User, Superadmin, Course_Student_SIS_Admin">
+        <Authorized>
+            <MudNavGroup Title="@Localizer["Courses"]" Icon="@Icons.Material.Filled.School" Expanded="false">
+                <MudNavLink Href="/ITCourse" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.LaptopChromebook">@Localizer["ITcourse"]</MudNavLink>
+            </MudNavGroup>
+        </Authorized>
+    </AuthorizeView>
+    <MudDivider />
+
     <AuthorizeView>
         <Authorized>
             <MudNavGroup Title="@Localizer["PowerBi"]" Icon="@Icons.Custom.Brands.MicrosoftWindows" Expanded="false">
@@ -60,6 +60,15 @@
                     </Authorized>
                 </AuthorizeView>
 
+            </MudNavGroup>
+        </Authorized>
+    </AuthorizeView>
+    <MudDivider />
+
+    <AuthorizeView Roles="User, Superadmin, Course_Student_SIS_Admin">
+        <Authorized>
+            <MudNavGroup Title="@Localizer["Tools"]" Icon="@Icons.Material.Filled.Build" Expanded="false">
+                <MudNavLink Href="/qr-generator" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.QrCode2">@Localizer["QrGenerator"]</MudNavLink>
             </MudNavGroup>
         </Authorized>
     </AuthorizeView>

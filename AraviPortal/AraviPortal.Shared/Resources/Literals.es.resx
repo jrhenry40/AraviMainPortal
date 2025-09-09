@@ -683,7 +683,7 @@ Desarrollamos nuestras soluciones utilizando las plataformas más modernas y rob
     <value>Error al guardar en la base de datos: {0}</value>
   </data>
   <data name="WorkSheetNotFound" xml:space="preserve">
-    <value>No se encontró la hoja de cálculo denominada {0}</value>
+    <value>No se encontró la hoja de cálculo denominada {0}.</value>
   </data>
   <data name="ERR013" xml:space="preserve">
     <value>Error al convertir el archivo de Excel a CSV: {0}</value>
@@ -783,5 +783,50 @@ Desarrollamos nuestras soluciones utilizando las plataformas más modernas y rob
   </data>
   <data name="DownloadToReport" xml:space="preserve">
     <value>Descargar informe</value>
+  </data>
+  <data name="QrGenerator" xml:space="preserve">
+    <value>Generador QR</value>
+  </data>
+  <data name="QrGeneratorTitle" xml:space="preserve">
+    <value>Generador de Códigos QR</value>
+  </data>
+  <data name="URLRequest" xml:space="preserve">
+    <value>Ingresa la URL para crear tu código QR al instante.</value>
+  </data>
+  <data name="URLgenerateQR" xml:space="preserve">
+    <value>URL para generar el código QR</value>
+  </data>
+  <data name="Generating" xml:space="preserve">
+    <value>Generando...</value>
+  </data>
+  <data name="GenerateQR" xml:space="preserve">
+    <value>Generar QR</value>
+  </data>
+  <data name="QRready" xml:space="preserve">
+    <value>¡Tu código QR está listo!</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="CreateAnother" xml:space="preserve">
+    <value>Crear otro</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Herramientas</value>
+  </data>
+  <data name="EnterURL" xml:space="preserve">
+    <value>Por favor, ingrese una URL.</value>
+  </data>
+  <data name="QrGeneratedSuccess" xml:space="preserve">
+    <value>Código QR generado con éxito.</value>
+  </data>
+  <data name="QRNotGenerated" xml:space="preserve">
+    <value>No se pudo generar el código QR.</value>
+  </data>
+  <data name="QrGenerationFailed" xml:space="preserve">
+    <value>No se pudo generar el código QR. Verifica que la URL sea válida.</value>
+  </data>
+  <data name="ConnectionError" xml:space="preserve">
+    <value>Error de conexión. No se pudo comunicar con el servidor.</value>
   </data>
 </root>

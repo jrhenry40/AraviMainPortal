@@ -1,0 +1,73 @@
+﻿@page "/qr-generator"
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="my-8">
+    <MudText Typo="Typo.h4" GutterBottom="true" Align="Align.Center">
+        <MudIcon Icon="@Icons.Material.Filled.QrCode2" Class="mr-2" /> @Localizer["QrGeneratorTitle"]
+    </MudText>
+
+    <MudPaper Elevation="3" Class="pa-6">
+
+        @if (string.IsNullOrEmpty(qrCodeBase64))
+        {
+            @* --- Vista de Formulario --- *@
+            <MudText Class="mb-4">@Localizer["URLRequest"]</MudText>
+
+            <MudTextField @bind-Value="urlToEncode"
+                          Label="@Localizer["URLgenerateQR"]"
+                          Variant="Variant.Outlined"
+                          Immediate="true"
+                          OnKeyUp="HandleKeyUp"
+                          Adornment="Adornment.End"
+                          AdornmentIcon="@Icons.Material.Filled.Link" />
+
+            <div class="d-flex justify-end mt-4">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           OnClick="GenerateQrCode"
+                           Disabled="@(string.IsNullOrWhiteSpace(urlToEncode) || isLoading)"
+                           Size="Size.Large">
+                    @if (isLoading)
+                    {
+                        <MudProgressCircular Indeterminate="true" Size="Size.Small" Class="mr-2" />
+                        <span>@Localizer["Generating"]</span>
+                    }
+                    else
+                    {
+                        <span>@Localizer["GenerateQR"]</span>
+                    }
+                </MudButton>
+            </div>
+        }
+        else
+        {
+            @* --- Vista de Resultado --- *@
+            <MudStack AlignItems="AlignItems.Center" Spacing="4">
+                <MudText Typo="Typo.h6">@Localizer["QRready"]</MudText>
+
+                <div class="pa-2" style="border: 1px solid var(--mud-palette-lines-default); border-radius: 4px;">
+                    <img src="data:image/png;base64,@qrCodeBase64" alt="Generated QR Code" style="max-width: 250px; height: auto;" />
+                </div>
+
+                <MudText Typo="Typo.body2" Align="Align.Center">
+                    <code>@urlToEncode</code>
+                </MudText>
+
+                <MudStack Direction="Direction.Row" Spacing="2" Class="mt-4">
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Success"
+                               OnClick="DownloadQrCodeAsync"
+                               StartIcon="@Icons.Material.Filled.Download">
+                        @Localizer["Download"]
+                    </MudButton>
+
+                    <MudButton Variant="Variant.Outlined"
+                               Color="Color.Primary"
+                               OnClick="Reset"
+                               StartIcon="@Icons.Material.Filled.Add">
+                        @Localizer["CreateAnother"]
+                    </MudButton>
+                </MudStack>
+            </MudStack>
+        }
+    </MudPaper>
+</MudContainer>

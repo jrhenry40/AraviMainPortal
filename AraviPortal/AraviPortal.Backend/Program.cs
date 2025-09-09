@@ -98,6 +98,8 @@ builder.Services.AddScoped<IDailyProcessUnitOfWork, DailyProcessUnitOfWork>();
 builder.Services.AddScoped<ISISUcsAmmsRepository, SISUcsAmmsRepository>();
 builder.Services.AddScoped<ISISUcsAmmsUnitOfWork, SISUcsAmmsUnitOfWork>();
 
+builder.Services.AddScoped<IQrCodeService, QrCodeService>();
+
 builder.Services.AddIdentity<User, IdentityRole>(x =>
 {
     x.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultAuthenticatorProvider;

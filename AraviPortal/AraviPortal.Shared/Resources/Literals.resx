@@ -784,4 +784,49 @@ We develop our solutions using the most modern and robust platforms:</value>
   <data name="DownloadToReport" xml:space="preserve">
     <value>Download To Report</value>
   </data>
+  <data name="QrGenerator" xml:space="preserve">
+    <value>QR Generator</value>
+  </data>
+  <data name="QrGeneratorTitle" xml:space="preserve">
+    <value>QR Code Generator</value>
+  </data>
+  <data name="URLRequest" xml:space="preserve">
+    <value>Enter the URL to create your QR code instantly.</value>
+  </data>
+  <data name="URLgenerateQR" xml:space="preserve">
+    <value>URL to generate the QR code</value>
+  </data>
+  <data name="Generating" xml:space="preserve">
+    <value>Generating...</value>
+  </data>
+  <data name="GenerateQR" xml:space="preserve">
+    <value>Generate QR</value>
+  </data>
+  <data name="QRready" xml:space="preserve">
+    <value>Your QR code is ready!</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="CreateAnother" xml:space="preserve">
+    <value>Create another</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="EnterURL" xml:space="preserve">
+    <value>Please enter a URL.</value>
+  </data>
+  <data name="QrGeneratedSuccess" xml:space="preserve">
+    <value>QR code successfully generated.</value>
+  </data>
+  <data name="QRNotGenerated" xml:space="preserve">
+    <value>The QR code could not be generated.</value>
+  </data>
+  <data name="QrGenerationFailed" xml:space="preserve">
+    <value>Could not generate the QR code. Please ensure the URL is valid.</value>
+  </data>
+  <data name="ConnectionError" xml:space="preserve">
+    <value>Connection error. Could not communicate with the server.</value>
+  </data>
 </root>

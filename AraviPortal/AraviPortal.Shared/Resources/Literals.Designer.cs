@@ -304,6 +304,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connection error. Could not communicate with the server..
+        /// </summary>
+        public static string ConnectionError {
+            get {
+                return ResourceManager.GetString("ConnectionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Countries.
         /// </summary>
         public static string Countries {
@@ -345,6 +354,15 @@ namespace AraviPortal.Shared.Resources {
         public static string Create {
             get {
                 return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create another.
+        /// </summary>
+        public static string CreateAnother {
+            get {
+                return ResourceManager.GetString("CreateAnother", resourceCulture);
             }
         }
         
@@ -439,6 +457,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        public static string Download {
+            get {
+                return ResourceManager.GetString("Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download To Report.
         /// </summary>
         public static string DownloadToReport {
@@ -480,6 +507,15 @@ namespace AraviPortal.Shared.Resources {
         public static string EmailAlreadyExists {
             get {
                 return ResourceManager.GetString("EmailAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a URL..
+        /// </summary>
+        public static string EnterURL {
+            get {
+                return ResourceManager.GetString("EnterURL", resourceCulture);
             }
         }
         
@@ -781,11 +817,29 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate QR.
+        /// </summary>
+        public static string GenerateQR {
+            get {
+                return ResourceManager.GetString("GenerateQR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate UCS AMMS Report.
         /// </summary>
         public static string GenerateSISUcsAmmsReport {
             get {
                 return ResourceManager.GetString("GenerateSISUcsAmmsReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generating....
+        /// </summary>
+        public static string Generating {
+            get {
+                return ResourceManager.GetString("Generating", resourceCulture);
             }
         }
         
@@ -1339,6 +1393,60 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to QR code successfully generated..
+        /// </summary>
+        public static string QrGeneratedSuccess {
+            get {
+                return ResourceManager.GetString("QrGeneratedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not generate the QR code. Please ensure the URL is valid..
+        /// </summary>
+        public static string QrGenerationFailed {
+            get {
+                return ResourceManager.GetString("QrGenerationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QR Generator.
+        /// </summary>
+        public static string QrGenerator {
+            get {
+                return ResourceManager.GetString("QrGenerator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QR Code Generator.
+        /// </summary>
+        public static string QrGeneratorTitle {
+            get {
+                return ResourceManager.GetString("QrGeneratorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The QR code could not be generated..
+        /// </summary>
+        public static string QRNotGenerated {
+            get {
+                return ResourceManager.GetString("QRNotGenerated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your QR code is ready!.
+        /// </summary>
+        public static string QRready {
+            get {
+                return ResourceManager.GetString("QRready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quality Assurance.
         /// </summary>
         public static string QualityAssurance {
@@ -1699,6 +1807,15 @@ namespace AraviPortal.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tools.
+        /// </summary>
+        public static string Tools {
+            get {
+                return ResourceManager.GetString("Tools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Training.
         /// </summary>
         public static string Training {
@@ -1821,6 +1938,24 @@ namespace AraviPortal.Shared.Resources {
         public static string UploadWSupplier {
             get {
                 return ResourceManager.GetString("UploadWSupplier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to URL to generate the QR code.
+        /// </summary>
+        public static string URLgenerateQR {
+            get {
+                return ResourceManager.GetString("URLgenerateQR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the URL to create your QR code instantly..
+        /// </summary>
+        public static string URLRequest {
+            get {
+                return ResourceManager.GetString("URLRequest", resourceCulture);
             }
         }
         
